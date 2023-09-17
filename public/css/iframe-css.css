@@ -1,0 +1,13 @@
+/* Add CSS to display iframes side by side */
+body {
+	display: flex;
+	height: 100vh; /* Set body height to 100% of viewport height */
+	margin: 0; /* Remove default margin to fill the entire viewport */
+}
+
+iframe {
+	flex: 1;
+	border: none;
+	height: 100%; /* Set iframe height to 100% of its container (body) */
+}
+

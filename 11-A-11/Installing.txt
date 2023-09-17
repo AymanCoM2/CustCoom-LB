@@ -1,0 +1,21 @@
+    {
+        Note ## It is Arabic So every Letter Makes a Difference " With Dots Or without"
+        Note :## Disappove Can Be VERY Dangerous 
+        ==========================================================
+        الياء بالنقطة تفرق 
+        ==========================
+        ==============================================
+    }
+
+
+1 - DB credits are OK [ Make sure of that ]
+$ php artisan migrate:fresh 
+$ php artisan storage:link 
+$ php artisan app:starting
+
+----------------------------------
+3-Import the Sample Files : '
+    1- First import the Radions
+    2- Second Import Data 
+--------------------------------------
+Now you Can use the App as ADMIN only if you Start maniulating the Data  ; 
