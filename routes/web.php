@@ -1,12 +1,15 @@
 <?php
 
 use App\Models\CardCode;
+use App\Models\Customers;
+use App\Models\Documents;
 use App\Models\EditHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], __DIR__ . '/utility.php'); // * Ok 
@@ -45,17 +48,35 @@ Route::get('/load-what-if-data', function (Request $request) {
 
 
 
-// Route::get('/change' , function (){
-    
-//     // DB Name Only Changed Once For this Request ;
-//     dump(DB::connection()->getDatabaseName());
-//     Config::set('database.connections.mysql.database','sap-proj-TM');
-// }) ; 
+Route::get('/load-customers-files', function () {
+    Documents::truncate();
+    $files = Storage::allFiles('pdf');
+    // This Lists Of Files in the Storage Folder
+    foreach ($files as $file) {
+        $userDocument  = new Documents();
+        // -------------------------------------------
+        $string = $file;
+        $partsForMimeType = explode(".", $string);
+        $fileExtension = end($partsForMimeType);
+        if ($fileExtension == 'pdf') {
+            $userDocument->mimeType  = 'pdf';
+        } else {
+            $userDocument->mimeType  =  'img';
+        }
+        // ------------------------------
+        $partsForCardCode = explode('/', $string);
+        $cardCode =  $partsForCardCode[1];  // * CardCode For Customer 
+        $customer  = Customers::where('CardCode', $cardCode)->first();
+        if (!$customer) {
+            $newMySqlCustomer  = new Customers();
+            $newMySqlCustomer->CardCode = $cardCode;
+            $newMySqlCustomer->save();
+            $customer = $newMySqlCustomer;
+        }
 
-
-
-// Route::get('/change-after' , function (){
-//     // Config::set('database.connections.mysql.database','sap-proj-TM');
-//     // dump(session()->get('dbName'));
-//     dump(DB::connection()->getDatabaseName());
-// }) ; 
+        $userDocument->customer_id  = $customer->id;
+        $userDocument->isApproved  = 1;
+        $userDocument->path = $file;  // ^ Path = $file 
+        $userDocument->save();
+    }
+});

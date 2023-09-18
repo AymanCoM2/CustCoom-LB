@@ -51,7 +51,7 @@
                             <img class="pdfmime" data-pdf-thumbnail-file="{{ asset('storage/' . $document->path) }}"
                                 data-pdf-thumbnail-width="200">
                             <div class="card-header">
-                                <p>{{ explode('--', $document->path)[1] }}</p>
+                                <p>{{  $document->path }}</p>
                                 @if (Auth::user()->isSuperUser == 1)
                                     <div class="row">
                                         <a href="{{ route('delete-docu') }}" class="btn btn-danger"
@@ -92,7 +92,7 @@
     <div class="card col-6 ">
         <img src="{{ asset('storage/' . $document->path) }}" alt="" class="imgmime">
         <div class="card-header">
-            <p>{{ explode('--', $document->path)[1] }}</p>
+            <p>{{  $document->path }}</p>
             @if (Auth::user()->isSuperUser == 1)
                 <div class="row">
                     <a href="{{ route('delete-docu') }}" class="btn btn-danger"
