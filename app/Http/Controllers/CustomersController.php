@@ -34,7 +34,7 @@ class CustomersController extends Controller
                 $data = DB::connection('sqlsrv')->select($sap_Query);
             } else {
                 $serverName = "10.10.10.100";
-                $databaseName = "TM";
+                $databaseName = "LB";
                 $uid = "ayman";
                 $pwd = "admin@1234";
                 $options = [
@@ -97,7 +97,7 @@ class CustomersController extends Controller
             $data = DB::connection('sqlsrv')->select($sap_Query);
         } else {
             $serverName = "10.10.10.100";
-            $databaseName = "TM";
+            $databaseName = "LB";
             $uid = "ayman";
             $pwd = "admin@1234";
             $options = [
@@ -185,7 +185,6 @@ class CustomersController extends Controller
         $driveURL = "https://drive.google.com/a/2coom.COM/embeddedfolderview?id=1NkuNjvYAU7OhDc5nkI0a9CxTKQRvEPlz&amp;usp=sharing#grid";
 
         $localUrl  = "http://127.0.0.1:8000/storage/pdfs/customer_123/FWXJpxCpGlN6TPKxm12AE1jb3KemJiRJHahC2QRA.pdf";
-
 
         $url  = $driveURL;
 

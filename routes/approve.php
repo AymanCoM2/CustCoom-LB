@@ -26,7 +26,6 @@ Route::get('/editor-approval-history-files', function (Request $request) {
 })->name('editor-approval-history-files');
 
 
-
 Route::get('/newly-uploaded-files', function () {
     $docsHistory = Documents::where('isApproved', 0)->get();
     return view('pages.newly-uploaded-files', compact('docsHistory'));

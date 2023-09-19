@@ -70,7 +70,7 @@
                                 Newly uploaded Files</span>
                         </a>
                     </li>
-                    
+
 
                     <li class="nav-link">
                         <a href="{{ route('col-types-get') }}">

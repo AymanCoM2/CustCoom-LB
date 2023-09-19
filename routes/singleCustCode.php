@@ -22,7 +22,7 @@ Route::post('/bbb', function (Request $request) {
         $data = DB::connection('sqlsrv')->select($sap_Query);
     } else {
         $serverName = "10.10.10.100";
-        $databaseName = "TM";
+        $databaseName = "LB";
         $uid = "ayman";
         $pwd = "admin@1234";
         $options = [
