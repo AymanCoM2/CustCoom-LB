@@ -60,6 +60,18 @@
                         </a>
                     </li>
 
+                    <hr>
+
+                    <li class="nav-link">
+                        <a href="{{ route('files-upload-log') }}">
+                            <span class="text nav-text">
+                                <span
+                                    class="badge bg-danger">{{ \App\Models\Documents::where('isApproved', 0)->count() }}</span>
+                                Newly uploaded Files</span>
+                        </a>
+                    </li>
+                    
+
                     <li class="nav-link">
                         <a href="{{ route('col-types-get') }}">
                             <i class="bx bx-history icon"></i>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApproveController;
 use App\Models\DissapprovedFile;
+use App\Models\Documents;
 use App\Models\EditGrave;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,10 @@ Route::get('/editor-approval-history-files', function (Request $request) {
     $allHistory = DissapprovedFile::where('uploader_id', request()->user()->id)->orderBy('updated_at', 'desc')->paginate(12);
     return view('pages.history-log-files', compact(['allHistory']));
 })->name('editor-approval-history-files');
+
+
+
+Route::get('/newly-uploaded-files', function () {
+    $docsHistory = Documents::where('isApproved', 0)->get();
+    return view('pages.newly-uploaded-files', compact('docsHistory'));
+})->name('files-upload-log');
