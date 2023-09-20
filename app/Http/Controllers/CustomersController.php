@@ -23,13 +23,10 @@ class CustomersController extends Controller
         $sap_Query = "
         SELECT * from LB_CustomerData
         ";
-        // WHERE R.CARDCODE = 'R0001' << After From R to get the DATA from 
-        // the Sap to Filter For One User
 
         if ($request->ajax()) {
             $osInfo = php_uname();
             $firstWord = strtok($osInfo, ' ');
-
             if (strcasecmp($firstWord, 'Windows') === 0) {
                 $data = DB::connection('sqlsrv')->select($sap_Query);
             } else {
@@ -89,7 +86,6 @@ class CustomersController extends Controller
         $sap_Query = "
         SELECT * from LB_CustomerData
         ";
-
         $osInfo = php_uname();
         $firstWord = strtok($osInfo, ' ');
 
@@ -136,7 +132,6 @@ class CustomersController extends Controller
             $newMySqlCustomer->save();
             $customerMySqlData = $newMySqlCustomer;
         }
-
         return view('pages.customer-form-view', compact(['customerSapData', 'customerMySqlData', 'cardCode']));
     }
 
@@ -183,11 +178,8 @@ class CustomersController extends Controller
     public function showCustomerDataFrameDrive($cardCode)
     {
         $driveURL = "https://drive.google.com/a/2coom.COM/embeddedfolderview?id=1NkuNjvYAU7OhDc5nkI0a9CxTKQRvEPlz&amp;usp=sharing#grid";
-
         $localUrl  = "http://127.0.0.1:8000/storage/pdfs/customer_123/FWXJpxCpGlN6TPKxm12AE1jb3KemJiRJHahC2QRA.pdf";
-
         $url  = $driveURL;
-
         // $url  = "https://drive.google.com/a/2coom.COM/embeddedfolderview?id=1NkuNjvYAU7OhDc5nkI0a9CxTKQRvEPlz#grid"; //working 
         return view('pages.customer-frame-view-drive', compact(['cardCode', 'url']));
     }
@@ -201,7 +193,7 @@ class CustomersController extends Controller
     {
         if ($request->user()->isSuperUser == 1) {
             $updatedCustomer  = Customers::where('id', $request->id)->first();
-            $updatedCustomer->update($request->all());
+            $updatedCustomer->update($request->all()); // ^ This is the Update 
             // Check Sanad and  Sejel 
             if (!isset($request->CommercialRegister)) {
                 $updatedCustomer->CommercialRegister = null;
