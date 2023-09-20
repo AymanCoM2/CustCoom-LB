@@ -33,9 +33,10 @@
     @endif
 
     <div class="alert alert-danger">
-        <a href="{{ route('get-customer-form-g', $cardCode) }}" id="iframeLink_x">Before -Approve (Original)</a>
+        <a href="{{ route('get-customer-form-g', $cardCode) }}" id="iframeLink_x">تحميل بيانات العميل المسجلة حاليا</a>
         <br>
-        <a href="{{ route('get-customer-form-g-what-if', $cardCode) }}" id="iframeLink_y">After -Approve (What if)</a>
+        <a href="{{ route('get-customer-form-g-what-if', $cardCode) }}" id="iframeLink_y">تحميل بيانات العميل في حالة
+            الموافقة على التعديلات</a>
     </div>
 
     <div id="myModal" class="modal">
@@ -56,7 +57,7 @@
                             <img class="pdfmime" data-pdf-thumbnail-file="{{ asset('storage/' . $document->path) }}"
                                 data-pdf-thumbnail-width="200">
                             <div class="card-header">
-                                <p>{{  $document->path }}</p>
+                                <p>{{ $document->path }}</p>
                                 @if (Auth::user()->isSuperUser == 1)
                                     <a href="{{ route('delete-docu') }}" class="btn btn-danger"
                                         onclick="event.preventDefault();
@@ -94,7 +95,7 @@
                         <div class="card col-6 ">
                             <img src="{{ asset('storage/' . $document->path) }}" alt="" class="imgmime">
                             <div class="card-header">
-                                <p>{{  $document->path }}</p>
+                                <p>{{ $document->path }}</p>
                                 @if (Auth::user()->isSuperUser == 1)
                                     <div class="row">
                                         <a href="{{ route('delete-docu') }}" class="btn btn-danger"

@@ -55,7 +55,8 @@ class FormGroupingRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => ":attribute is required"
+            'required' => ":attribute مطلوب",
+            'required_if' => ':attribute مطلوب في حالة وجود :other '
         ];
     }
 
@@ -66,6 +67,7 @@ class FormGroupingRequest extends FormRequest
             "CustomerType" => trans("CustomerType", [], 'ar'),
             "OpenAccountPropose" => trans("OpenAccountPropose", [], 'ar'),
             "CommercialRegister" => trans("CommercialRegister", [], 'ar'),
+            "CommLicense" => trans("CommLicense", [], 'ar'),
             "TaxCard" => trans("TaxCard", [], 'ar'),
             "OrderBond" => trans("OrderBond", [], 'ar'),
             "OwnerImg" => trans("OwnerImg", [], 'ar'),
