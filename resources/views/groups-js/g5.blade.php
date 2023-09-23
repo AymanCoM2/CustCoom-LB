@@ -1,10 +1,31 @@
     {{-- GROUP 5  --}}
     <script>
+        $('.unified_check').on('change', function() {
+            // Find the nearest radio button
+            var nearestRadio = $(this).closest('.row').find('input[type="radio"]:checked');
+            // Check if the nearest radio button's value is "موجود"
+            if (nearestRadio.val() === 'موجود' && $(this).prop("checked")) {
+                // alert('The nearest radio button value is موجود');
+                $(this).closest('.col-sm-4').find('input[type="date"]').attr('required', true);
+                $(this).closest('.col-sm-4').find('input[type="date"]').addClass('border border-danger');
+                $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', false);
+            } else {
+                // alert('The nearest radio button value is something else');
+                $(this).closest('.col-sm-4').find('input[type="date"]').attr('required', false);
+                $(this).closest('.col-sm-4').find('input[type="date"]').removeClass('border border-danger');
+                $(this).closest('.col-sm-4').find('input[type="date"]').val('');
+                // $(':input[name="OwnerIDExpiryDate_h"]').val('');
+                $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', true);
+            }
+        });
+
+
         // Radio 
         $(':input[name="OwnerImg"]').change(function() {
             firstCouple();
             var selectedValue = $(this).val();
-            if (selectedValue == 'موجود') {
+            var checkboxValue_1 = $(this).closest('.row').find('.unified_check').prop("checked");
+            if (selectedValue == 'موجود' && checkboxValue_1) {
                 $(':input[name="OwnerIDExpiryDate"]').attr('required', true);
                 $(':input[name="OwnerIDExpiryDate"]').addClass('border border-danger');
                 $(':input[name="OwnerIDExpiryDate"]').prop('disabled', false);
@@ -31,7 +52,8 @@
         $(':input[name="ObSupporterIdImg"]').change(function() {
             secondCouple();
             var selectedValue = $(this).val();
-            if (selectedValue == 'موجود') {
+            var checkboxValue_1 = $(this).closest('.row').find('.unified_check').prop("checked");
+            if (selectedValue == 'موجود' & checkboxValue_1) {
                 $(':input[name="ExpiryDateGuarantorPromissoryNote"]').attr('required', true);
                 $(':input[name="ExpiryDateGuarantorPromissoryNote"]').addClass('border border-danger');
                 $(':input[name="ExpiryDateGuarantorPromissoryNote"]').prop('disabled', false);
@@ -59,7 +81,8 @@
         $(':input[name="ObFrstSeeIdImg"]').change(function() {
             thirdCouple();
             var selectedValue = $(this).val();
-            if (selectedValue == 'موجود') {
+            var checkboxValue_1 = $(this).closest('.row').find('.unified_check').prop("checked");
+            if (selectedValue == 'موجود' & checkboxValue_1) {
                 // $('p[name="hala_3"]').text('سارى');
                 $(':input[name="ExpirationDateFirstWitness"]').attr('required', true);
                 $(':input[name="ExpirationDateFirstWitness"]').addClass('border border-danger');
@@ -89,7 +112,8 @@
         $(':input[name="ObScndSeeIdImg"]').change(function() {
             fourthCouple();
             var selectedValue = $(this).val();
-            if (selectedValue == 'موجود') {
+            var checkboxValue_1 = $(this).closest('.row').find('.unified_check').prop("checked");
+            if (selectedValue == 'موجود' & checkboxValue_1) {
                 $(':input[name="ExpiryDateSecondWitness"]').attr('required', true);
                 $(':input[name="ExpiryDateSecondWitness"]').addClass('border border-danger');
                 $(':input[name="ExpiryDateSecondWitness"]').prop('disabled', false);

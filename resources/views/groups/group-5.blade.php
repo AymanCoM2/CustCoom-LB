@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <div class="row">
 
+        {{-- 1 --}}
         <div class="col-sm-4 {{ $errors->has('OwnerImg') ? 'border border-danger' : '' }}">
             <label for="" class="form-label bg-light fw-bold d-block"> {{ __('OwnerImg', [], 'ar') }} </label>
             @php
@@ -56,9 +57,13 @@
                 endif;
             @endphp
         </div>
+        {{-- 1 End  --}}
 
+
+        {{-- 2 --}}
         <div class="col-sm-4">
             <label for="" class="form-label bg-light fw-bold d-block"> {{ __('OwnerIDExpiryDate', [], 'ar') }}
+                <input type="checkbox" class="unified_check">
             </label>
             @php
                 $uxDate = strtotime($customerMySqlData->OwnerIDExpiryDate);
@@ -76,7 +81,6 @@
                             $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
                             echo "<a class=\"al\" href=''
                                        onclick=\"event.preventDefault();
                                                      document.getElementById('approval').setAttribute('value'" .
@@ -123,6 +127,7 @@
                 endif;
             @endphp
         </div>
+        {{-- 2 End  --}}
 
         <div class="col-sm-4">
             <label for="inputEmail4" class="form-label bg-light fw-bold"> حالة هوية المالك</label>
@@ -196,7 +201,9 @@
 
         <div class="sanad-g col-sm-4">
             <label for="" class="form-label bg-light fw-bold d-block">
-                {{ __('ExpiryDateGuarantorPromissoryNote', [], 'ar') }} </label>
+                {{ __('ExpiryDateGuarantorPromissoryNote', [], 'ar') }}
+                <input type="checkbox" class="unified_check">
+            </label>
             @php
                 $uxDate = strtotime($customerMySqlData->ExpiryDateGuarantorPromissoryNote);
                 $formatted = date('d-m-Y', $uxDate);
@@ -337,6 +344,7 @@
         <div class="sanad-g col-sm-4">
             <label for="" class="form-label bg-light fw-bold d-block">
                 {{ __('ExpirationDateFirstWitness', [], 'ar') }}
+                <input type="checkbox" class="unified_check">
             </label>
             @php
                 $uxDate = strtotime($customerMySqlData->ExpirationDateFirstWitness);
@@ -473,7 +481,9 @@
 
         <div class="sanad-g col-sm-4">
             <label for="" class="form-label bg-light fw-bold d-block">
-                {{ __('ExpiryDateSecondWitness', [], 'ar') }} </label>
+                {{ __('ExpiryDateSecondWitness', [], 'ar') }}
+                <input type="checkbox" class="unified_check">
+            </label>
             @php
                 $uxDate = strtotime($customerMySqlData->ExpiryDateSecondWitness);
                 $formatted = date('d-m-Y', $uxDate);

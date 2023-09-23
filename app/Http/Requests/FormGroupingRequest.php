@@ -25,15 +25,15 @@ class FormGroupingRequest extends FormRequest
             "CommLicense" => "required",
             "NationalAddrOrgImg" => "required",
             // GG 
-            "OwnerIDExpiryDate" => 'nullable',
+            // "OwnerIDExpiryDate" => 'nullable',
             // "required_if:anotherfield,value"
             // GG 
             "ObSupporterIdImg" =>  "required_if:OrderBond,موجود",
             "ObFrstSeeIdImg" => "required_if:OrderBond,موجود",
             "ObScndSeeIdImg" => "required_if:OrderBond,موجود",
-            "ExpiryDateGuarantorPromissoryNote" =>  "required_if:ObSupporterIdImg,موجود",
-            "ExpirationDateFirstWitness" => "required_if:ObFrstSeeIdImg,موجود",
-            "ExpiryDateSecondWitness" => "required_if:ObScndSeeIdImg,موجود",
+            // "ExpiryDateGuarantorPromissoryNote" =>  "required_if:ObSupporterIdImg,موجود",
+            // "ExpirationDateFirstWitness" => "required_if:ObFrstSeeIdImg,موجود",
+            // "ExpiryDateSecondWitness" => "required_if:ObScndSeeIdImg,موجود",
             // GG 
             "ExpiryDateNationalAddress" => "required_if:NationalAddrOrgImg,موجود",
             "ExpiryDateNationalAddressReserveGuarantor" => "required_if:NationalAddrFirstSupOb,موجود",

@@ -80,3 +80,13 @@ Route::get('/load-customers-files', function () {
         $userDocument->save();
     }
 });
+
+
+Route::get('/cke', function () {
+    return view('pages.cke');
+});
+
+
+Route::post('/cke', function (Request $request) {
+    dd($request);
+})->name('cke-post');
