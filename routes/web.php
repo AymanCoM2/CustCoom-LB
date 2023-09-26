@@ -36,7 +36,7 @@ Route::get('/new-codes', function (Request $request) {
     $allNewCardCodes->appends(['search' => $searchTerm]);
 
     return view('pages.new-codes', compact('allNewCardCodes'));
-})->middleware('lev1')->name('new-codes-get');
+})->name('new-codes-get');
 
 
 
