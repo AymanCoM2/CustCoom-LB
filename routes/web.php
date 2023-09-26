@@ -7,8 +7,6 @@ use App\Models\EditHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 Auth::routes();
@@ -39,13 +37,11 @@ Route::get('/new-codes', function (Request $request) {
 })->name('new-codes-get');
 
 
-
 Route::get('/load-what-if-data', function (Request $request) {
     $cardCode = $request->cardCode;
     $lastEditHistory = EditHistory::where('cardCode', $cardCode)->get();
     return response()->json(['result' => json_encode($lastEditHistory)]);
 })->name('load-what-if-data');
-
 
 
 Route::get('/load-customers-files', function () {
@@ -73,7 +69,6 @@ Route::get('/load-customers-files', function () {
             $newMySqlCustomer->save();
             $customer = $newMySqlCustomer;
         }
-
         $userDocument->customer_id  = $customer->id;
         $userDocument->isApproved  = 1;
         $userDocument->path = $file;  // ^ Path = $file 
