@@ -1,11 +1,11 @@
 <div class="container-fluid">
-
     <div class="row">
         <div class="col-sm-12">
             <label for="" class="form-label bg-light w-100 fw-bold d-block">
-                {{ __('CustomerLocation', [], 'ar') }} </label>
+                {{ __('CustomerLocation', [], 'ar') }}
+                <a href="{{ $customerMySqlData->CustomerLocation }}">Link</a>
+            </label>
             @php
-                
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'CustomerLocation'):
@@ -161,7 +161,6 @@
             @endphp
         </div>
 
-        
         <div class="col-sm-12">
             <label for="" class="form-input-label bg-light w-100 fw-bold"> {{ __('Notes', [], 'ar') }} </label>
             @php
