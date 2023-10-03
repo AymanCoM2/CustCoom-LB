@@ -62,6 +62,7 @@
         <div class="col-sm-4">
             <label for="" class="form-label bg-light w-100 fw-bold d-block">
                 {{ __('ExpiryDateNationalAddress', [], 'ar') }}
+                <input type="checkbox" class="unified_check_6">
             </label>
             @php
                 $uxDate = strtotime($customerMySqlData->ExpiryDateNationalAddress);
@@ -200,6 +201,7 @@
         <div class="col-sm-4 sanad-g">
             <label for="" class="form-label bg-light w-100 fw-bold d-block">
                 {{ __('ExpiryDateNationalAddressReserveGuarantor', [], 'ar') }} </label>
+                <input type="checkbox" class="unified_check_6">
             @php
                 $uxDate = strtotime($customerMySqlData->ExpiryDateNationalAddressReserveGuarantor);
                 $formatted = date('d-m-Y', $uxDate);
