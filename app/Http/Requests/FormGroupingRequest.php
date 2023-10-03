@@ -35,7 +35,7 @@ class FormGroupingRequest extends FormRequest
             // "ExpirationDateFirstWitness" => "required_if:ObFrstSeeIdImg,موجود",
             // "ExpiryDateSecondWitness" => "required_if:ObScndSeeIdImg,موجود",
             // GG 
-            "ExpiryDateNationalAddress" => "required_if:NationalAddrOrgImg,موجود",
+            // "ExpiryDateNationalAddress" => "required_if:NationalAddrOrgImg,موجود",
             // "ExpiryDateNationalAddressReserveGuarantor" => "required_if:NationalAddrFirstSupOb,موجود",
             "NationalAddrFirstSupOb" => "required_if:OrderBond,موجود",
             // GG
