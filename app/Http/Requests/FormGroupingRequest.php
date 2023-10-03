@@ -36,7 +36,7 @@ class FormGroupingRequest extends FormRequest
             // "ExpiryDateSecondWitness" => "required_if:ObScndSeeIdImg,موجود",
             // GG 
             "ExpiryDateNationalAddress" => "required_if:NationalAddrOrgImg,موجود",
-            "ExpiryDateNationalAddressReserveGuarantor" => "required_if:NationalAddrFirstSupOb,موجود",
+            // "ExpiryDateNationalAddressReserveGuarantor" => "required_if:NationalAddrFirstSupOb,موجود",
             "NationalAddrFirstSupOb" => "required_if:OrderBond,موجود",
             // GG
             "ValueOrderException" => "required_if:OrderBond,موجود,مستثنى",
@@ -81,7 +81,7 @@ class FormGroupingRequest extends FormRequest
             "ExpiryDateGuarantorPromissoryNote" => trans("ExpiryDateGuarantorPromissoryNote", [], 'ar'),
             "ExpirationDateFirstWitness" => trans("ExpirationDateFirstWitness", [], 'ar'),
             "ExpiryDateSecondWitness" => trans("ExpiryDateSecondWitness", [], 'ar'),
-            "ExpiryDateNationalAddress" => trans("ExpiryDateNationalAddress", [], 'ar'),
+            // "ExpiryDateNationalAddress" => trans("ExpiryDateNationalAddress", [], 'ar'),
             "ExpiryDateNationalAddressReserveGuarantor" => trans("ExpiryDateNationalAddressReserveGuarantor", [], 'ar'),
             "ValueOrderException" => trans("ValueOrderException", [], 'ar'),
             "CreationDateOrderOrException" => trans("CreationDateOrderOrException", [], 'ar'),
