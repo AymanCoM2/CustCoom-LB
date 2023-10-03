@@ -73,6 +73,15 @@
 
 
                     <li class="nav-link">
+                        <a href="{{ route('customer-edit-log') }}">
+                            <span class="text nav-text">
+                                <span
+                                    class="badge bg-danger">{{ \App\Models\Documents::where('isApproved', 0)->count() }}</span>
+                                Newly updated Customers</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
                         <a href="{{ route('col-types-get') }}">
                             <i class="bx bx-history icon"></i>
                             <span class="text nav-text">Column Types</span>
