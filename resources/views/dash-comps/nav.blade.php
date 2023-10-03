@@ -76,7 +76,10 @@
                         <a href="{{ route('customer-edit-log') }}">
                             <span class="text nav-text">
                                 <span
-                                    class="badge bg-danger">{{ \App\Models\Documents::where('isApproved', 0)->count() }}</span>
+                                    class="badge bg-danger">{{ $counts = \App\Models\EditHistory::where('isApproved', 0)
+                                    ->selectRaw('cardCode, COUNT(*) as count')
+                                    ->groupBy('cardCode')
+                                    ->get() }}</span>
                                 Newly updated Customers</span>
                         </a>
                     </li>
