@@ -76,7 +76,7 @@
                         <a href="{{ route('customer-edit-log') }}">
                             <span class="text nav-text">
                                 <span
-                                    class="badge bg-danger">{{ \Illuminate\Support\Facades\DB::table('edit_histories')->distinct('cardCode')->count('cardCode') }}</span>
+                                    class="badge bg-danger">{{ \Illuminate\Support\Facades\DB::table('edit_histories')->distinct('cardCode')->where('isApproved', false)->count('cardCode') }}</span>
                                 Newly updated Customers</span>
                         </a>
                     </li>
