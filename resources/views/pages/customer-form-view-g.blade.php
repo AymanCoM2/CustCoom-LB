@@ -106,24 +106,26 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <table class=" table table-responsive">
-                                <thead>
-                                    <th>Field Name </th>
-                                    <th>Date</th>
-                                    <th>Old Value</th>
-                                    <th>Disapproved Value</th>
-                                </thead>
-                                <tbody>
-                                    @foreach (\App\Models\EditGrave::where('cardCode', $customerMySqlData->CardCode)->where('editor_id', request()->user()->id)->orderBy('updated_at', 'desc')->take(7)->get() as $oneOfSeven)
-                                        <tr>
-                                            <td> {{ $oneOfSeven->fieldName }}</td>
-                                            <td> {{ $oneOfSeven->updated_at }}</td>
-                                            <td> {{ $oneOfSeven->oldValue }}</td>
-                                            <td> {{ $oneOfSeven->newValue }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table table-responsive overflow-auto">
+                                    <thead>
+                                        <th>Field Name</th>
+                                        <th>Date</th>
+                                        <th>Old Value</th>
+                                        <th>Disapproved Value</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (\App\Models\EditGrave::where('cardCode', $customerMySqlData->CardCode)->where('editor_id', request()->user()->id)->orderBy('updated_at', 'desc')->take(7)->get() as $oneOfSeven)
+                                            <tr>
+                                                <td> {{ $oneOfSeven->fieldName }}</td>
+                                                <td> {{ $oneOfSeven->updated_at }}</td>
+                                                <td> {{ $oneOfSeven->oldValue }}</td>
+                                                <td> {{ $oneOfSeven->newValue }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
