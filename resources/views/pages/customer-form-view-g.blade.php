@@ -106,7 +106,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <table class="table">
+                            <table class="table table-responsive">
                                 <thead>
                                     <th>Field Name </th>
                                     <th>Date</th>
