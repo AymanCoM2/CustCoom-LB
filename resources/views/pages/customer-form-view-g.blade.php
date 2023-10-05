@@ -105,8 +105,8 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <table class="table table-responsive">
+                        <div class="modal-body table table-responsive">
+                            {{-- <table class=""> --}}
                                 <thead>
                                     <th>Field Name </th>
                                     <th>Date</th>
@@ -121,8 +121,7 @@
                                         <td> {{ $oneOfSeven->newValue }}</td>
                                     </tr>
                                 @endforeach
-                            </table>
-
+                            {{-- </table> --}}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
