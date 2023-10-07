@@ -7,6 +7,7 @@ use App\Models\CardCode;
 use App\Models\ComLog;
 use App\Models\Customers;
 use App\Models\EditHistory;
+use App\Models\TempDisapprove;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -270,6 +271,12 @@ class CustomersController extends Controller
                             $editHistory->newValue = $filtered[$key];
                             $editHistory->isApproved  = false;
                             $editHistory->save();
+                            $tmp = TempDisapprove::where('cardCode', $editHistory->cardCode)
+                                ->where('fieldName', $editHistory->fieldName)
+                                ->first();
+                            if ($tmp) {
+                                $tmp->delete();
+                            }
                         } else {
                             $editLog  = new EditHistory();
                             $oldValue = $oldModelObject[$key];
@@ -281,6 +288,12 @@ class CustomersController extends Controller
                             $editLog->newValue = $newValue;
                             $editLog->isApproved  = false;
                             $editLog->save();
+                            $tmp = TempDisapprove::where('cardCode', $editLog->cardCode)
+                                ->where('fieldName', $editLog->fieldName)
+                                ->first();
+                            if ($tmp) {
+                                $tmp->delete();
+                            }
                         }
                     }
                 }

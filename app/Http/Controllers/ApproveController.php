@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customers;
 use App\Models\EditGrave;
 use App\Models\EditHistory;
+use App\Models\TempDisapprove;
 use Illuminate\Http\Request;
 
 class ApproveController extends Controller
@@ -14,15 +15,16 @@ class ApproveController extends Controller
         // TODO
         // It is Now for Disapproval NOT for Approval 
         $verticalPosition  = $request->scrollY;
+        $tmpDisapprove  = new TempDisapprove();
         $approvedLog  = EditHistory::where('id', $request->approveFieldId)->first();
         $editGrave = new EditGrave();
-
-        $editGrave->cardCode  = $approvedLog->cardCode;
-        $editGrave->editor_id =  $approvedLog->editor_id;
-        $editGrave->fieldName =  $approvedLog->fieldName;
-        $editGrave->oldValue  = $approvedLog->oldValue;
-        $editGrave->newValue  = $approvedLog->newValue;
+        $editGrave->cardCode  = $tmpDisapprove->cardCode =  $approvedLog->cardCode;
+        $editGrave->editor_id = $tmpDisapprove->editor_id =   $approvedLog->editor_id;
+        $editGrave->fieldName = $tmpDisapprove->fieldName =   $approvedLog->fieldName;
+        $editGrave->oldValue  = $tmpDisapprove->oldValue =  $approvedLog->oldValue;
+        $editGrave->newValue  = $tmpDisapprove->newValue =  $approvedLog->newValue;
         $editGrave->save();
+        $tmpDisapprove->save();
         $approvedLog->delete();
         return back()->with(['posY' => $verticalPosition]);
     }
