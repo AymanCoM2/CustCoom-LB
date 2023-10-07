@@ -88,52 +88,7 @@
         <input type="hidden" name="created_at" value="">
         <input type="hidden" name="updated_at" value="">
 
-        @if (Auth::user()->isSuperUser == 2)
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                id="floatingModalButton">
-                Show
-            </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Last Disapproved Fields</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="table-responsive">
-                                <table class="table table-responsive overflow-auto">
-                                    <thead>
-                                        <th>Field Name</th>
-                                        <th>Date</th>
-                                        <th>Old Value</th>
-                                        <th>Disapproved Value</th>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (\App\Models\EditGrave::where('cardCode', $customerMySqlData->CardCode)->where('editor_id', request()->user()->id)->orderBy('updated_at', 'desc')->take(7)->get() as $oneOfSeven)
-                                            <tr>
-                                                <td> {{ $oneOfSeven->fieldName }}</td>
-                                                <td> {{ $oneOfSeven->updated_at }}</td>
-                                                <td> {{ $oneOfSeven->oldValue }}</td>
-                                                <td> {{ $oneOfSeven->newValue }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
 
         @include('layouts.sep', ['variableName' => 'مجموعة - 1'])
         @include('groups.group-1')
