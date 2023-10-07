@@ -85,8 +85,8 @@
             الموافقة على التعديلات</a>
     </div>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
+    <div id="myModal" class="modalOmola">
+        <div class="modal-contentOmola">
             <span class="close">&times;</span>
             <p></p>
             <iframe id="iframe2" src="" style="width:100%; height:900px; border:0;"></iframe>
