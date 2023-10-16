@@ -5,7 +5,7 @@
             <thead>
                 <tr>
                     <th scope="col">Path Info For the DoC</th>
-                    <th scope="col">Uplooader</th>
+                    <th scope="col">Uploader</th>
                     <th scope="col">Upload History</th>
                 </tr>
             </thead>
