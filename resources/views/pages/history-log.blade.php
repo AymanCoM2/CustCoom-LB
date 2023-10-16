@@ -22,7 +22,7 @@
                                 {{ $editHistory->cardCode }}
                             </a>
                         </th>
-                        <td>{{ $editHistory->editor_id }}</td>
+                        <td>{{ $editHistory->name }}</td>
                         <td>{{ __($editHistory->fieldName, [], 'ar') }}</td>
                         <td>{{ $editHistory->oldValue }}</td>
                         <td>{{ $editHistory->newValue }}</td>
