@@ -1,7 +1,3 @@
-1- In the Sap-Prject : 
-    - Before Log in ask For the DB name "LB or TM" 
-    - In the Dashboard , Show a title to show what is the DB name  ;
-
 =====================================
 1-REPORTS ; 
 ===============

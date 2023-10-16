@@ -15,5 +15,7 @@ $ php artisan app:starting
 3-Import the Sample Files : '
     1- First import the Radions
     2- Second Import Data 
+
+    3- Importing the Files  
 --------------------------------------
 Now you Can use the App as ADMIN only if you Start maniulating the Data  ; 

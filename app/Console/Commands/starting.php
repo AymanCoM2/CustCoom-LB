@@ -19,7 +19,7 @@ class starting extends Command
         $adminUser = new User();
         $adminUser->name = 'admin';
         $adminUser->email = 'admin@admin.com';
-        $adminUser->password = Hash::make('12345678');
+        $adminUser->password = Hash::make('123');
         $adminUser->isSuperUser = 1;
         $adminUser->email_verified_at = now();
         $adminUser->save();
@@ -28,7 +28,7 @@ class starting extends Command
         $editorUser = new User();
         $editorUser->name = 'editor';
         $editorUser->email = 'editor@editor.com';
-        $editorUser->password = Hash::make('12345678');
+        $editorUser->password = Hash::make('123');
         $editorUser->isSuperUser = 2;
         $editorUser->email_verified_at = now();
         $editorUser->save();
@@ -36,7 +36,7 @@ class starting extends Command
         $viewerUser = new User();
         $viewerUser->name = 'viewer';
         $viewerUser->email = 'viewer@viewer.com';
-        $viewerUser->password = Hash::make('12345678');
+        $viewerUser->password = Hash::make('123');
         $viewerUser->isSuperUser = 3;
         $viewerUser->email_verified_at = now();
         $viewerUser->save();
