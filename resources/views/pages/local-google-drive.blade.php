@@ -50,7 +50,7 @@
                                 <tbody>
                                     @foreach (\App\Models\TempDisapprove::where('cardCode', $cardCode)->where('editor_id', request()->user()->id)->orderBy('updated_at', 'desc')->get() as $oneOfSeven)
                                         <tr>
-                                            <td> {{ $oneOfSeven->fieldName }}</td>
+                                            <td> {{ __($oneOfSeven->fieldName, [], 'ar') }}</td>
                                             <td> {{ $oneOfSeven->updated_at }}</td>
                                             <td> {{ $oneOfSeven->oldValue }}</td>
                                             <td> {{ $oneOfSeven->newValue }}</td>
