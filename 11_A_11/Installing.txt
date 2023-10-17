@@ -1,0 +1,20 @@
+
+- Make Sure DB credits are OK [ Make sure of that ]
+$ php artisan migrate:fresh 
+$ php artisan storage:link 
+$ php artisan app:starting
+-> /load-customers-files [ For Loading Of Files ]
+----------------------------------
+3-Import the Sample Files : 
+    1- Import the DDL file For Radio Buttons 
+    2- Import Customers Data From Excel Files 
+    3- Importing the Files Themselves [ Images and Pdfs ]
+--------------------------------------
+{
+    Note ## It is Arabic So every Letter Makes a Difference " With Dots Or without"
+    Note :## Disappove Can Be VERY Dangerous 
+    ==========================================================
+    الياء بالنقطة تفرق 
+    ==========================
+    ==============================================
+}
