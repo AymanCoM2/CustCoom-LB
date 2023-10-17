@@ -5,6 +5,7 @@ use App\Models\DissapprovedFile;
 use App\Models\Documents;
 use App\Models\EditGrave;
 use App\Models\EditHistory;
+use App\Models\TempDisapprove;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,7 @@ Route::get('/customer-edit-log', function () {
 })->name('customer-edit-log');
 
 Route::get('/editor-approval-history', function (Request $request) {
-    $allHistory = EditGrave::where('editor_id', request()->user()->id)->orderBy('updated_at', 'desc')->paginate(12);
+    $allHistory = TempDisapprove::where('editor_id', request()->user()->id)->orderBy('updated_at', 'desc')->paginate(12);
     return view('pages.history-log', compact(['allHistory']));
 })->name('editor-approval-history');
 

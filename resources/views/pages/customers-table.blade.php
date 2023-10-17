@@ -66,10 +66,10 @@
                         "createdCell": function(td, cellData, rowData, row, col) {
                             $(td).css('background-color', '#d3d3d3');
                             $(td).html(
-                                '<a style=" text-decoration: none;" href="' +
-                                '{{ url('/dash/customer-data/drive') }}' +
-                                '/' + cellData + '" >' +
-                                cellData + "(Drive)" + '</a>' + '<br/>' +
+                                // '<a style=" text-decoration: none;" href="' +
+                                // '{{ url('/dash/customer-data/drive') }}' +
+                                // '/' + cellData + '" >' +
+                                // cellData + "(Drive)" + '</a>' + '<br/>' +
                                 '<a  style="color:red; text-decoration: none;" href="' +
                                 '{{ url('/dash/customer-data/local') }}' +
                                 '/' + cellData + '" >' +
