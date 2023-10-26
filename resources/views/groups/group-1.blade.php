@@ -9,7 +9,7 @@
         {{-- 2 --}}
         <div class="col-sm-6">
             <label for="inputEmail4" class="form-label bg-light  w-100 fw-bold">Group :</label>
-            <span>{{ $customerSapData['GroupName'] }}</span> |
+            <span>{{ $customerSapData['GroupName'] }}</span> 
             <span id="COM">{{ $customerMySqlData['COM'] }}</span>
         </div>
 
