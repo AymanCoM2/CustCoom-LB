@@ -1,4 +1,3 @@
-
 - Make Sure DB credits are OK [ Make sure of that ]
 $ php artisan migrate:fresh 
 $ php artisan storage:link 
@@ -15,6 +14,5 @@ $ php artisan app:starting
     Note :## Disappove Can Be VERY Dangerous 
     ==========================================================
     الياء بالنقطة تفرق 
-    ==========================
     ==============================================
 }
