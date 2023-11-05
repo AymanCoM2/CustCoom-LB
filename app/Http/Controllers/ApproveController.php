@@ -12,8 +12,7 @@ class ApproveController extends Controller
 {
     public function approveField(Request $request)
     {
-        // TODO
-        // It is Now for Disapproval NOT for Approval 
+        // approveField() is Now for Disapproval NOT for Approval 
         $verticalPosition  = $request->scrollY;
         $tmpDisapprove  = new TempDisapprove();
         $approvedLog  = EditHistory::where('id', $request->approveFieldId)->first();

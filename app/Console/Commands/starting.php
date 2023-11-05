@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class starting extends Command
 {
-
     protected $signature = 'app:starting';
-    // php artisan app:starting
-
     protected $description = 'Command description';
 
     public function handle()
@@ -33,8 +30,6 @@ class starting extends Command
         $editorUser->email_verified_at = now();
         $editorUser->save();
 
-
-
         $editorUser2 = new User();
         $editorUser2->name = 'Asmaa';
         $editorUser2->email = 'as.yahiya.2coom@gmail.com';
@@ -43,8 +38,6 @@ class starting extends Command
         $editorUser2->email_verified_at = now();
         $editorUser2->save();
 
-
-
         $viewerUser = new User();
         $viewerUser->name = 'Osama';
         $viewerUser->email = 'osama.saad@2coom.com';
@@ -52,7 +45,6 @@ class starting extends Command
         $viewerUser->isSuperUser = 3;
         $viewerUser->email_verified_at = now();
         $viewerUser->save();
-
 
         $viewerUser2 = new User();
         $viewerUser2->name = 'Mahmoud';
