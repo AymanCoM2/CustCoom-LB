@@ -10,5 +10,3 @@ Artisan::command('inspire', function () {
 Artisan::command('author', function () {
     $this->comment("Ayman Salah");
 })->purpose('Display The author Name');
-// $ php artisan author   {Command}
-// Ayman Salah {Result}

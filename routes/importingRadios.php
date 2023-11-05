@@ -85,7 +85,6 @@ Route::post('/options', function (ExcelRequest $request) {
     foreach ($keys as $key => $value) {
         $finalCollection[$value] = [];
     }
-    // dd($finalCollection) ; -> //* Check Point  ; 
 
     foreach ($collections as $singleCollection) {
         foreach ($keys as $k => $v) {
@@ -94,10 +93,7 @@ Route::post('/options', function (ExcelRequest $request) {
             }
         }
     }
-    // dd($finalCollection);
     $finalVersionOfOptions  = array_combine($eng_keys, $finalCollection);
-    // dd($finalVersionOfOptions);
-    // Now We Have the DDL Column Names and their Options in an array 
     foreach ($finalVersionOfOptions as $colName => $Options) {
         $editedColumn  = ColumnType::where('colName', $colName)->first();
         $editedColumn->colType = 'ddl';

@@ -28,7 +28,6 @@ Route::post('/dash/handle-upload', [LocalStorageController::class, 'handleUpload
 Route::get('dash/get-archive-files/{cardCode}', [LocalStorageController::class, 'getArchivedFiles'])->name('show-archive');
 
 
-
 Route::get('/approve-pdf-file/{pdf}', function (Request $request) {
     $documentId  = $request->pdf;
     $approvedDoc = Documents::where('id', $documentId)->first();
@@ -41,8 +40,6 @@ Route::get('/approve-pdf-file/{pdf}', function (Request $request) {
 Route::get('/disapprove-pdf-file/{pdf}', function (Request $request) {
     $documentId  = $request->pdf;
     $disApprovedDoc = Documents::where('id', $documentId)->first();
-    // Delete it Permanently 
-    // dd($disApprovedDoc->uploaded_id);
     $disapprovedFile  = new DissapprovedFile();
     $disapprovedFile->uploader_id = $disApprovedDoc->uploaded_id;
     $disapprovedFile->filePathName = $disApprovedDoc->path;

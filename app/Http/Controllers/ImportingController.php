@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Rap2hpoutre\FastExcel\FastExcel;
 use App\Http\Requests\ExcelRequest;
@@ -13,16 +12,12 @@ class ImportingController extends Controller
     public function importCustomersExcel()
     {
         return view('pages.import-customers');
-    } // OK 
+    }
 
     public function storeExcelImport(ExcelRequest $request)
     {
-        // dd($request->excelFile);
         $collections = (new FastExcel)->import($request->excelFile);
-        // dd($collections); // Now we Have the Data in the File 
-
         $data = [];
-
         foreach ($collections as $collection) {
             foreach ($collection as $key => $value) {
             }
@@ -36,7 +31,6 @@ class ImportingController extends Controller
                 'CreationDateOrderOrException' => $collection["تاريخ انشاء سند الامر او الاستثناء"],
                 'OwnerIDExpiryDate' => $collection["تاريخ انتهاء هوية المالك"],
                 'ExpiryDateGuarantorPromissoryNote' => $collection["تاريخ انتهاء صورة عن هوية الضامن الاحتياطي في السند لأمر"],
-
                 'ExpirationDateFirstWitness' => $collection[" تاريخ انتهاء هوية الشاهد الاول في السند الامر"],
                 'ExpiryDateSecondWitness' => $collection[" تاريخ انتهاء هوية الشاهد الثانى في السند الامر"],
                 // 'StatusIdentitySecondWitness' => $collection[" حالة هوية الشاهد الثانى في السند الامر"],
@@ -66,60 +60,10 @@ class ImportingController extends Controller
                 'ObScndSeeIdImg' => $collection[" صورة عن هوية الشاهد الثانى في السند الامر"],
                 'NationalAddrOrgImg' => $collection[" صورة عن العنوان الوطني للمؤسسة"],
                 'NationalAddrFirstSupOb' => $collection[" صورة عن العنوان الوطني للضامن الاحتياطي في سند الامر"],
-
-                
-                // TM or LB 
             ]);
         }
-        // dd($data) ;
-        // $colNamesArra  = [
-        //     'CardCode',
-        //     'CustomerName',
-        //     'CRExpiryDate',
-        //     'ExpirydateCommlicense',
-        //     'ValueOrderException',
-        //     'CreationDateOrderOrException',
-        //     'OwnerIDExpiryDate',
-        //     'ExpiryDateGuarantorPromissoryNote',
-        //     'ExpirationDateFirstWitness',
-        //     'ExpiryDateSecondWitness',
-        //     // 'StatusIdentitySecondWitness',
-        //     // 'GovernmentTaxIdentifier',
-        //     'ExpiryDateNationalAddress',
-        //     'ExpiryDateNationalAddressReserveGuarantor',
-        //     // 'DateCreated',
-        //     'CustomerLocation',
-        //     'Notes',
-        //     'Branches',
-        //     'ValueBondOrExceptionBranches',
-        //     'CustomerType',
-        //     'OrgLegalStatue',
-        //     'OpenAccountPropose',
-        //     'CommercialRegister',
-        //     'CrCnMatch',
-        //     'TaxCard',
-        //     'CommLicense',
-        //     'OrderBond',
-        //     'ObCrMatch',
-        //     'OwnerImg',
-        //     'ObSupporterIdImg',
-        //     'ObFrstSeeIdImg',
-        //     'ObScndSeeIdImg',
-        //     'NationalAddrOrgImg',
-        //     'NationalAddrFirstSupOb'
-        // ];
 
-        // $secondData =  [];
-
-        // foreach ($colNamesArra as $key => $value) {
-        //     array_push($secondData, [
-        //         'colName' =>  $value,
-        //     ]);
-        // }
-        // DB::table('customers')->truncate();
         DB::table('customers')->insert($data);
-        // DB::table('column_types')->insert($secondData);
-        // Toastr::success(count($data) . ' - Products imported successfully!');
         Toastr::success('File successfully Uploaded.');
         session()->flash('message', 'File successfully Uploaded.');
         return back();

@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Models\ColumnOption;
 use Illuminate\Http\Request;
 
-// Those Routes are For Changing Column Types , and 
-// Changing their Related Radio Buttons [ AKA : Types , Options ]
 // ======================================= // * Ok "to Change the Type For Data"
 Route::get('/get-col-types', [ColumnController::class, 'columnTypesGet'])->name('col-types-get');
 Route::post('/post-col-types', [ColumnController::class, 'columnTypesPost'])->name('col-types-post');

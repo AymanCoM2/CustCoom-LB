@@ -15,7 +15,6 @@ class ReportController extends Controller
         } else {
             return view('reports.index');
         }
-        // dd($reportNumber);
     }
 
     public function reportOne()
@@ -25,19 +24,6 @@ class ReportController extends Controller
 
     public function sample2()
     {
-        // This is Other Way for the Report File 
-        // Same Form Apply to the Same Controller Function Again !
         return view('reports.sample');
     }
 }
-
-
-// "CRExpiryDate": "تاريخ انتهاء السجل التجارى",
-// "ValueOrderException": "قيمة سند الامر او الاستثناء",
-// "CreationDateOrderOrException": "تاريخ انشاء سند الامر او الاستثناء",
-// "OwnerIDExpiryDate": "تاريخ انتهاء هوية المالك",
-// "CustomerType":"نوع العميل", 
-// آجل , اجل مستثني  , نقدى
-
-
-

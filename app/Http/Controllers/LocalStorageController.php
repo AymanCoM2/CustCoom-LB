@@ -38,7 +38,7 @@ class LocalStorageController extends Controller
             );
             $aDocument->path = $responsePath;
             $aDocument->customer_id  = $customerId;
-            $aDocument->uploaded_id  = $request->user()->id; // TODO the Typo
+            $aDocument->uploaded_id  = $request->user()->id;
             $aDocument->mimeType  = $realExtension;
             $aDocument->save();
         }
