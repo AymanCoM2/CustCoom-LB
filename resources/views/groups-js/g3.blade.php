@@ -32,8 +32,6 @@
         var todayExtraFixed = new Date();
         todayExtraFixed.setMonth(todayExtraFixed.getMonth() + fixedPeriod)
         var theirDate_345 = new Date(date_3_1);
-        // today.setMonth(today.getMonth() + fixedPeriod);
-        // console.log(today.toISOString().substr(0, 10));
         if ((theirDate_345 > todayExtraFixed) && (check_3_2 == 'موجود')) {
             $('p[name="hyf56_34"]').text('سارى');
         } else {

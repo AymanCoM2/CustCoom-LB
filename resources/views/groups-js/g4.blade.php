@@ -7,11 +7,6 @@
         var selectedValue = $(this).val();
         if (selectedValue == 'موجود') {
             markRequired();
-            // if ($('#COM').text() == 'LB') {
-            //     $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
-            // } else {
-            //     $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) * 0.8);
-            // }
             $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
             // HERE 
             let creditSapValue = Number($('p[name="CreditLine_p"]').text());
@@ -25,11 +20,9 @@
             } else {
                 $('p[name="motabaqa"]').text('السند اصغر');
             }
-            // HERE 
         } else if (selectedValue == 'مستثنى') {
             markRequired();
             $('p[name="mazbota"]').text($(':input[name="ValueOrderException"]').val());
-            // HERE 
             let creditSapValue = Number($('p[name="CreditLine_p"]').text());
             let mazValue = Number($('p[name="mazbota"]').text());
             if (Number(mazValue) == creditSapValue) {
@@ -41,37 +34,24 @@
             } else {
                 $('p[name="motabaqa"]').text('السند اصغر');
             }
-            // HERE 
         } else {
             removeRequired();
             $('p[name="mazbota"]').text('0');
         }
         claculateHSL()
     });
-    // 
+
     $(':input[name="ValueOrderException"]').on("myCustomEvent input", function() {
         let mazValue = 0;
         let selectedValue = $(':input[name="OrderBond"]:checked').val();
         if (selectedValue == 'موجود') {
-            // markRequired();
-            // if ($('#COM').text() == 'LB') {
-            //     $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
-            //     mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / 2);
-            // } else {
-            //     $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) * 0.8);
-            //     mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) * 0.8);
-            // }
             $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
             mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / 2);
-
-            // console.log(mazValue);
         } else if (selectedValue == 'مستثنى') {
-            // markRequired();
             $('p[name="mazbota"]').text($(':input[name="ValueOrderException"]').val());
             mazValue = Number(Number($(':input[name="ValueOrderException"]').val()));
             console.log(mazValue);
         } else {
-            // removeRequired();
             $('p[name="mazbota"]').text('0');
             mazValue = 0;
             console.log(mazValue);
@@ -164,6 +144,5 @@
         } else {
             $('p[name="hsl"]').text("يجب اعادة طلبه");
         }
-
     } // End of CalcHSL() 
 </script>
