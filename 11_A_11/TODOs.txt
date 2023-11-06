@@ -11,3 +11,14 @@ TODOS for the Projects :
 k0018 Is Not Working On Shaimaa Account 
 Review The Source Codes and Edit them [ In General ]
 the Correlated Data Fields
+
+===================================
+For Calculated Data : 
+    - Create Custom Event and Assign it to HTML elements 
+    [DONE]
+    - Upon Clicking On load Data Fire this Custom Event and Dispach it to the elements 
+    [DONE]
+    - In html elements those listening For events , add listening to this Custom Event also 
+    - GROUP BY GROUP 
+    - In Collect Files Also 
+    - 

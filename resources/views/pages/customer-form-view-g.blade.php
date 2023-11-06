@@ -123,8 +123,7 @@
 
         @if (Auth::user()->isSuperUser == 2)
             <div class="d-flex justify-content-center">
-                <input type="submit" name="submit" id="" value="Submit"
-                    class="form-group btn btn-danger">
+                <input type="submit" name="submit" id="" value="Submit" class="form-group btn btn-danger">
             </div>
         @endif
         <br>
@@ -137,6 +136,24 @@
 
     <script src="{{ asset('js/code.jquery.com_jquery-3.7.0.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+    <script>
+        // ! New Custom Event to do here  
+        const customEvent = new CustomEvent('myCustomEvent', {
+            detail: {
+                someData: 'Hello, custom event!'
+            }
+        });
+
+        // // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
+        // const radioButtons = document.querySelectorAll('input[type="radio"]');
+        // const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        // const inputElements = document.querySelectorAll('input');
+
+        // [...radioButtons, ...checkboxes, ...inputElements].forEach(function(element) {
+        //     element.dispatchEvent(customEvent);
+        // });
+        // // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
+    </script>
     <script>
         $(document).ready(function() {
             console.log($('#scrollY').val());

@@ -7,7 +7,7 @@
         // /////////////////////// 1 
         // حالة طلب فتح الحساب
         var calcElement_1 = $('p[name="calc_g2_1"]');
-        $(':input[name="OpenAccountPropose"]').change(function() {
+        $(':input[name="OpenAccountPropose"]').on("myCustomEvent change", function() {
             if ($(this).is(':checked')) {
                 var selectedValue = $(this).val();
                 // console.log("Radio button selected. Its value is: " + selectedValue);
@@ -22,7 +22,7 @@
         });
 
         // /////////////////////// 2 
-        $(':input[name="CommercialRegister"]').change(function() {
+        $(':input[name="CommercialRegister"]').on("myCustomEvent change", function() {
             if ($(this).is(':checked')) {
                 var selectedValue = $(this).val();
                 theMixFormulaG2_1();
@@ -44,7 +44,7 @@
 
 
         // /////////////////////// 3 
-        $(':input[name="TaxCard"]').change(function() {
+        $(':input[name="TaxCard"]').on("myCustomEvent change", function() {
             if ($(this).is(':checked')) {
                 var selectedValue = $(this).val();
                 // console.log("Radio button selected. Its value is: " + selectedValue);
@@ -58,19 +58,19 @@
             }
         });
 
-        $(':input[name="CRExpiryDate"]').change(function() {
+        $(':input[name="CRExpiryDate"]').on("myCustomEvent change", function() {
             var CRExpiryDate = $(this).val();
             console.log(CRExpiryDate);
             theMixFormulaG2_1();
         });
 
-        $(':input[name="CRExpiryDate_h"]').on('blur', function() {
+        $(':input[name="CRExpiryDate_h"]').on("myCustomEvent blur", function() {
             setTimeout(function() {
                 theMixFormulaG2_1();
             }, 100); // Adjust the delay as needed
         });
 
-        $(':input[name="CrCnMatch"]').change(function() {
+        $(':input[name="CrCnMatch"]').on("myCustomEvent change", function() {
             theMixFormulaG2_1();
         });
 

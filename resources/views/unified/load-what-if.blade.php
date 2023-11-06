@@ -57,9 +57,16 @@
                     });
                     el.dispatchEvent(event);
                 }
-                // Create and dispatch a "change" event
-
             }
         });
+        // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const inputElements = document.querySelectorAll('input');
+
+        [...radioButtons, ...checkboxes, ...inputElements].forEach(function(element) {
+            element.dispatchEvent(customEvent);
+        });
+        // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
     } // End Of fillTheForm
 </script>

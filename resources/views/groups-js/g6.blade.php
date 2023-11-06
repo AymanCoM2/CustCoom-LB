@@ -1,6 +1,6 @@
 {{-- GROUP 6  --}}
 <script>
-    $('.unified_check_6').on('change', function() {
+    $('.unified_check_6').on("myCustomEvent change", function() {
         // Find the nearest radio button
         var nearestRadio = $(this).closest('.row').find('input[type="radio"]:checked');
         // Check if the nearest radio button's value is "موجود"
@@ -19,7 +19,7 @@
         }
     });
 
-    $(':input[name="NationalAddrOrgImg"]').change(function() {
+    $(':input[name="NationalAddrOrgImg"]').on("myCustomEvent change", function() {
         firstCombination();
         var selectedValue = $(this).val();
         var checkboxValue_1 = $(this).closest('.row').find('.unified_check_6').prop("checked");
@@ -36,16 +36,16 @@
         }
     });
 
-    $(':input[name="ExpiryDateNationalAddress"]').change(function() {
+    $(':input[name="ExpiryDateNationalAddress"]').on("myCustomEvent change", function() {
         firstCombination();
     });
-    $(':input[name="ExpiryDateNationalAddress_h"]').on('blur', function() {
+    $(':input[name="ExpiryDateNationalAddress_h"]').on("myCustomEvent blur", function() {
         setTimeout(function() {
             firstCombination();
         }, 100); // Adjust the delay as needed
     });
 
-    $(':input[name="NationalAddrFirstSupOb"]').change(function() {
+    $(':input[name="NationalAddrFirstSupOb"]').on("myCustomEvent change", function() {
         secondCombination();
         var selectedValue = $(this).val();
         var checkboxValue_1 = $(this).closest('.row').find('.unified_check_6').prop("checked");
@@ -63,10 +63,10 @@
         }
     });
 
-    $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').change(function() {
+    $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').on("myCustomEvent change", function() {
         secondCombination();
     });
-    $(':input[name="ExpiryDateNationalAddressReserveGuarantor_h"]').on('blur', function() {
+    $(':input[name="ExpiryDateNationalAddressReserveGuarantor_h"]').on("myCustomEvent blur", function() {
         setTimeout(function() {
             secondCombination();
         }, 100); // Adjust the delay as needed

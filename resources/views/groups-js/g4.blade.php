@@ -1,10 +1,10 @@
     {{-- GROUP 4  --}}
     <script>
-        $(':input[name="ObCrMatch"]').change(function() {
+        $(':input[name="ObCrMatch"]').on("myCustomEvent change", function() {
             claculateHSL()
         });
 
-        $(':input[name="OrderBond"]').change(function() {
+        $(':input[name="OrderBond"]').on("myCustomEvent change", function() {
             var selectedValue = $(this).val();
             if (selectedValue == 'موجود') {
                 markRequired();
@@ -50,7 +50,7 @@
             claculateHSL()
         });
         // 
-        $(':input[name="ValueOrderException"]').on('input', function() {
+        $(':input[name="ValueOrderException"]').on("myCustomEvent input", function() {
             let mazValue = 0;
             let selectedValue = $(':input[name="OrderBond"]:checked').val();
             if (selectedValue == 'موجود') {
@@ -92,7 +92,7 @@
         });
 
         // CreationDateOrderOrException
-        $(':input[name="CreationDateOrderOrException"]').change(function() {
+        $(':input[name="CreationDateOrderOrException"]').on("myCustomEvent change", function() {
             let fixedPeriod = 3;
             let date_5_1 = $(':input[name="CreationDateOrderOrException"]').val();
             let theirDate_345 = new Date(date_5_1);
@@ -101,7 +101,7 @@
             claculateHSL()
         });
 
-        $(':input[name="CreationDateOrderOrException_h"]').on('blur', function() {
+        $(':input[name="CreationDateOrderOrException_h"]').on("myCustomEvent blur", function() {
             setTimeout(function() {
                 let fixedPeriod = 3;
                 let date_5_1 = $(':input[name="CreationDateOrderOrException"]').val();

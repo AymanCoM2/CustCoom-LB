@@ -1,6 +1,6 @@
     {{-- GROUP 5  --}}
     <script>
-        $('.unified_check').on('change', function() {
+        $('.unified_check').on("myCustomEvent change", function() {
             // Find the nearest radio button
             var nearestRadio = $(this).closest('.row').find('input[type="radio"]:checked');
             // Check if the nearest radio button's value is "موجود"
@@ -21,7 +21,7 @@
 
 
         // Radio 
-        $(':input[name="OwnerImg"]').change(function() {
+        $(':input[name="OwnerImg"]').on("myCustomEvent change", function() {
             firstCouple();
             var selectedValue = $(this).val();
             var checkboxValue_1 = $(this).closest('.row').find('.unified_check').prop("checked");
@@ -39,17 +39,17 @@
         });
 
         // DATE input 
-        $(':input[name="OwnerIDExpiryDate"]').change(function() {
+        $(':input[name="OwnerIDExpiryDate"]').on("myCustomEvent change", function() {
             firstCouple();
         });
-        $(':input[name="OwnerIDExpiryDate_h"]').on('blur', function() {
+        $(':input[name="OwnerIDExpiryDate_h"]').on("myCustomEvent blur", function() {
             setTimeout(function() {
                 firstCouple();
             }, 100); // Adjust the delay as needed
         });
 
         // Radio 
-        $(':input[name="ObSupporterIdImg"]').change(function() {
+        $(':input[name="ObSupporterIdImg"]').on("myCustomEvent change", function() {
             secondCouple();
             var selectedValue = $(this).val();
             var checkboxValue_1 = $(this).closest('.row').find('.unified_check').prop("checked");
@@ -68,17 +68,17 @@
         });
 
         // DATE input 
-        $(':input[name="ExpiryDateGuarantorPromissoryNote"]').change(function() {
+        $(':input[name="ExpiryDateGuarantorPromissoryNote"]').on("myCustomEvent change", function() {
             secondCouple();
         });
-        $(':input[name="ExpiryDateGuarantorPromissoryNote_h"]').on('blur', function() {
+        $(':input[name="ExpiryDateGuarantorPromissoryNote_h"]').on("myCustomEvent blur", function() {
             setTimeout(function() {
                 secondCouple();
             }, 100); // Adjust the delay as needed
         });
 
         // Radio 
-        $(':input[name="ObFrstSeeIdImg"]').change(function() {
+        $(':input[name="ObFrstSeeIdImg"]').on("myCustomEvent change", function() {
             thirdCouple();
             var selectedValue = $(this).val();
             var checkboxValue_1 = $(this).closest('.row').find('.unified_check').prop("checked");
@@ -99,17 +99,17 @@
         });
 
         // DATE input 
-        $(':input[name="ExpirationDateFirstWitness"]').change(function() {
+        $(':input[name="ExpirationDateFirstWitness"]').on("myCustomEvent change", function() {
             thirdCouple();
         });
-        $(':input[name="ExpirationDateFirstWitness_h"]').on('blur', function() {
+        $(':input[name="ExpirationDateFirstWitness_h"]').on("myCustomEvent blur", function() {
             setTimeout(function() {
                 thirdCouple();
             }, 100); // Adjust the delay as needed
         });
 
         // Radio 
-        $(':input[name="ObScndSeeIdImg"]').change(function() {
+        $(':input[name="ObScndSeeIdImg"]').on("myCustomEvent change", function() {
             fourthCouple();
             var selectedValue = $(this).val();
             var checkboxValue_1 = $(this).closest('.row').find('.unified_check').prop("checked");
@@ -127,10 +127,10 @@
         });
 
         // DATE input 
-        $(':input[name="ExpiryDateSecondWitness"]').change(function() {
+        $(':input[name="ExpiryDateSecondWitness"]').on("myCustomEvent change", function() {
             fourthCouple();
         });
-        $(':input[name="ExpiryDateSecondWitness_h"]').on('blur', function() {
+        $(':input[name="ExpiryDateSecondWitness_h"]').on("myCustomEvent blur", function() {
             setTimeout(function() {
                 fourthCouple();
             }, 100); // Adjust the delay as needed

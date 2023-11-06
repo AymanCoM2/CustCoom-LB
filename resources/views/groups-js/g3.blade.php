@@ -1,7 +1,7 @@
 {{-- GROUP 3  --}}
 <script>
     // RADIO BUTTON 
-    $(':input[name="CommLicense"]').change(function() {
+    $(':input[name="CommLicense"]').on("myCustomEvent change", function() {
         var selectedValue = $(this).val();
         theMixFormulaG3_1();
         if (selectedValue == 'موجود') {
@@ -10,21 +10,21 @@
         } else {
             $(':input[name="ExpirydateCommlicense"]').attr('required', false);
             $(':input[name="ExpirydateCommlicense"]').removeClass('border border-danger');
-            $(':input[name="ExpirydateCommlicense"]').val(''); 
+            $(':input[name="ExpirydateCommlicense"]').val('');
         }
     });
 
     // DATE input 
-    $(':input[name="ExpirydateCommlicense"]').change(function() {
+    $(':input[name="ExpirydateCommlicense"]').on("myCustomEvent change", function() {
         var ExpirydateCommlicense = $(this).val();
         theMixFormulaG3_1()
     });
 
-    $(':input[name="ExpirydateCommlicense_h"]').on('blur', function() {
-            setTimeout(function() {
-                theMixFormulaG3_1();
-            }, 100); // Adjust the delay as needed
-        });
+    $(':input[name="ExpirydateCommlicense_h"]').on("myCustomEvent blur", function() {
+        setTimeout(function() {
+            theMixFormulaG3_1();
+        }, 100); // Adjust the delay as needed
+    });
 
     function theMixFormulaG3_1() {
         let fixedPeriod = 1;
