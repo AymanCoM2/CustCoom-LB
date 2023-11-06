@@ -1,4 +1,3 @@
-{{-- GROUP 3  --}}
 <script>
     // RADIO BUTTON 
     $(':input[name="CommLicense"]').on("myCustomEvent change", function() {
@@ -42,4 +41,3 @@
         }
     }
 </script>
-{{-- GROUP 3  --}}

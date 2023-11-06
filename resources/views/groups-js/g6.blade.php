@@ -1,4 +1,3 @@
-{{-- GROUP 6  --}}
 <script>
     $('.unified_check_6').on("myCustomEvent change", function() {
         // Find the nearest radio button
@@ -100,4 +99,3 @@
         }
     }
 </script>
-{{-- GROUP 6  --}}
