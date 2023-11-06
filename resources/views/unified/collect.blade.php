@@ -50,13 +50,15 @@
             let mazValue = 0;
             var selectedValue = $(':input[name="OrderBond"]:checked').val();
             if (selectedValue == 'موجود') {
-                if ($('#COM').text() == 'LB') {
-                    $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
-                    mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / 2);
-                } else {
-                    $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) * 0.8);
-                    mazValue = Number(Number($(':input[name="ValueOrderException"]').val())  * 0.8);
-                }
+                $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
+                mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / 2);
+                // if ($('#COM').text() == 'LB') {
+                //     $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
+                //     mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / 2);
+                // } else {
+                //     $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) * 0.8);
+                //     mazValue = Number(Number($(':input[name="ValueOrderException"]').val())  * 0.8);
+                // }
             } else if (selectedValue == 'مستثنى') {
                 mazValue = Number(Number($(':input[name="ValueOrderException"]').val()));
                 $('p[name="mazbota"]').text($(':input[name="ValueOrderException"]').val());
