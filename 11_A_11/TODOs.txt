@@ -5,11 +5,9 @@ TODOS for the Projects :
     - Excel Export For the Data ? [ Task Scheduling ]
     - Google Drive Links For Customers 
 
-[ The Percentage For Each project is now Fixed ] COM Column 
 [Loading The What-if Data + The Calculated Data ]
 [Calender Widget in HTMl and Make it Standard For Browsers ?]
 [When Date is Disabled It Does NOT sent any Value to the Request ]
 k0018 Is Not Working On Shaimaa Account 
-
 Review The Source Codes and Edit them [ In General ]
 the Correlated Data Fields
