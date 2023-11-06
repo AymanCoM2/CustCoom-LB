@@ -7,14 +7,14 @@
             // alert('The nearest radio button value is موجود');
             $(this).closest('.col-sm-4').find('input[type="date"]').attr('required', true);
             $(this).closest('.col-sm-4').find('input[type="date"]').addClass('border border-danger');
-            $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', false);
+            // $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', false);
         } else {
             // alert('The nearest radio button value is something else');
             $(this).closest('.col-sm-4').find('input[type="date"]').attr('required', false);
             $(this).closest('.col-sm-4').find('input[type="date"]').removeClass('border border-danger');
-            $(this).closest('.col-sm-4').find('input[type="date"]').val('');
-            // $(':input[name="OwnerIDExpiryDate_h"]').val('');
-            $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', true);
+            // $(this).closest('.col-sm-4').find('input[type="date"]').val('');
+            // // $(':input[name="OwnerIDExpiryDate_h"]').val('');
+            // $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', true);
         }
     });
 
@@ -25,13 +25,13 @@
         if (selectedValue == 'موجود' & checkboxValue_1) {
             $(':input[name="ExpiryDateNationalAddress"]').attr('required', true);
             $(':input[name="ExpiryDateNationalAddress"]').addClass('border border-danger');
-            $(':input[name="ExpiryDateNationalAddress"]').prop('disabled', false);
+            // $(':input[name="ExpiryDateNationalAddress"]').prop('disabled', false);
         } else {
             $(':input[name="ExpiryDateNationalAddress"]').attr('required', false);
             $(':input[name="ExpiryDateNationalAddress"]').removeClass('border border-danger');
-            $(':input[name="ExpiryDateNationalAddress"]').val('');
-            $(':input[name="ExpiryDateNationalAddress_h"]').val('');
-            $(':input[name="ExpiryDateNationalAddress"]').prop('disabled', true);
+            // $(':input[name="ExpiryDateNationalAddress"]').val('');
+            // $(':input[name="ExpiryDateNationalAddress_h"]').val('');
+            // $(':input[name="ExpiryDateNationalAddress"]').prop('disabled', true);
         }
     });
 
@@ -51,14 +51,14 @@
         if (selectedValue == 'موجود' & checkboxValue_1) {
             $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').attr('required', true);
             $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').addClass('border border-danger');
-            $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').prop('disabled', false);
+            // $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').prop('disabled', false);
         } else {
             $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').attr('required', false);
             $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').removeClass(
                 'border border-danger');
-            $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').val('');
-            $(':input[name="ExpiryDateNationalAddressReserveGuarantor_h"]').val('');
-            $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').prop('disabled', true);
+            // $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').val('');
+            // $(':input[name="ExpiryDateNationalAddressReserveGuarantor_h"]').val('');
+            // $(':input[name="ExpiryDateNationalAddressReserveGuarantor"]').prop('disabled', true);
         }
     });
 

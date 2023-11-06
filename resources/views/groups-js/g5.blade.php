@@ -7,14 +7,14 @@
             // alert('The nearest radio button value is موجود');
             $(this).closest('.col-sm-4').find('input[type="date"]').attr('required', true);
             $(this).closest('.col-sm-4').find('input[type="date"]').addClass('border border-danger');
-            $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', false);
+            // $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', false);
         } else {
             // alert('The nearest radio button value is something else');
             $(this).closest('.col-sm-4').find('input[type="date"]').attr('required', false);
             $(this).closest('.col-sm-4').find('input[type="date"]').removeClass('border border-danger');
-            $(this).closest('.col-sm-4').find('input[type="date"]').val('');
-            // $(':input[name="OwnerIDExpiryDate_h"]').val('');
-            $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', true);
+            // $(this).closest('.col-sm-4').find('input[type="date"]').val('');
+            // // $(':input[name="OwnerIDExpiryDate_h"]').val('');
+            // $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', true);
         }
     });
 
@@ -27,13 +27,13 @@
         if (selectedValue == 'موجود' && checkboxValue_1) {
             $(':input[name="OwnerIDExpiryDate"]').attr('required', true);
             $(':input[name="OwnerIDExpiryDate"]').addClass('border border-danger');
-            $(':input[name="OwnerIDExpiryDate"]').prop('disabled', false);
+            // $(':input[name="OwnerIDExpiryDate"]').prop('disabled', false);
         } else {
             $(':input[name="OwnerIDExpiryDate"]').attr('required', false);
             $(':input[name="OwnerIDExpiryDate"]').removeClass('border border-danger');
-            $(':input[name="OwnerIDExpiryDate"]').val('');
-            $(':input[name="OwnerIDExpiryDate_h"]').val('');
-            $(':input[name="OwnerIDExpiryDate"]').prop('disabled', true);
+            // $(':input[name="OwnerIDExpiryDate"]').val('');
+            // $(':input[name="OwnerIDExpiryDate_h"]').val('');
+            // $(':input[name="OwnerIDExpiryDate"]').prop('disabled', true);
         }
     });
 
@@ -55,13 +55,13 @@
         if (selectedValue == 'موجود' & checkboxValue_1) {
             $(':input[name="ExpiryDateGuarantorPromissoryNote"]').attr('required', true);
             $(':input[name="ExpiryDateGuarantorPromissoryNote"]').addClass('border border-danger');
-            $(':input[name="ExpiryDateGuarantorPromissoryNote"]').prop('disabled', false);
+            // $(':input[name="ExpiryDateGuarantorPromissoryNote"]').prop('disabled', false);
         } else {
             $(':input[name="ExpiryDateGuarantorPromissoryNote"]').attr('required', false);
             $(':input[name="ExpiryDateGuarantorPromissoryNote"]').removeClass('border border-danger');
-            $(':input[name="ExpiryDateGuarantorPromissoryNote"]').val('');
-            $(':input[name="ExpiryDateGuarantorPromissoryNote_h"]').val('');
-            $(':input[name="ExpiryDateGuarantorPromissoryNote"]').prop('disabled', true);
+            // $(':input[name="ExpiryDateGuarantorPromissoryNote"]').val('');
+            // $(':input[name="ExpiryDateGuarantorPromissoryNote_h"]').val('');
+            // $(':input[name="ExpiryDateGuarantorPromissoryNote"]').prop('disabled', true);
 
         }
     });
@@ -85,15 +85,15 @@
             // $('p[name="hala_3"]').text('سارى');
             $(':input[name="ExpirationDateFirstWitness"]').attr('required', true);
             $(':input[name="ExpirationDateFirstWitness"]').addClass('border border-danger');
-            $(':input[name="ExpirationDateFirstWitness"]').prop('disabled', false);
+            // $(':input[name="ExpirationDateFirstWitness"]').prop('disabled', false);
 
         } else {
             // $('p[name="hala_3"]').text('يجب اعادة طلبه');
             $(':input[name="ExpirationDateFirstWitness"]').attr('required', false);
             $(':input[name="ExpirationDateFirstWitness"]').removeClass('border border-danger');
-            $(':input[name="ExpirationDateFirstWitness"]').val('');
-            $(':input[name="ExpirationDateFirstWitness_h"]').val('');
-            $(':input[name="ExpirationDateFirstWitness"]').prop('disabled', true);
+            // $(':input[name="ExpirationDateFirstWitness"]').val('');
+            // $(':input[name="ExpirationDateFirstWitness_h"]').val('');
+            // $(':input[name="ExpirationDateFirstWitness"]').prop('disabled', true);
         }
     });
 
@@ -115,13 +115,13 @@
         if (selectedValue == 'موجود' & checkboxValue_1) {
             $(':input[name="ExpiryDateSecondWitness"]').attr('required', true);
             $(':input[name="ExpiryDateSecondWitness"]').addClass('border border-danger');
-            $(':input[name="ExpiryDateSecondWitness"]').prop('disabled', false);
+            // $(':input[name="ExpiryDateSecondWitness"]').prop('disabled', false);
         } else {
             $(':input[name="ExpiryDateSecondWitness"]').attr('required', false);
             $(':input[name="ExpiryDateSecondWitness"]').removeClass('border border-danger');
-            $(':input[name="ExpiryDateSecondWitness"]').val('');
-            $(':input[name="ExpiryDateSecondWitness_h"]').val('');
-            $(':input[name="ExpiryDateSecondWitness"]').prop('disabled', true);
+            // $(':input[name="ExpiryDateSecondWitness"]').val('');
+            // $(':input[name="ExpiryDateSecondWitness_h"]').val('');
+            // $(':input[name="ExpiryDateSecondWitness"]').prop('disabled', true);
         }
     });
 
