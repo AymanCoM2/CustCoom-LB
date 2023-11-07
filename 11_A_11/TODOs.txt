@@ -1,24 +1,9 @@
 TODOS for the Projects : 
     - REPORTS
-    - Export excel Mysql + sap + Calculated in Sheets 
-    - DB backups 
-    - Excel Export For the Data ? [ Task Scheduling ]
+    - Export excel Mysql + sap + Calculated in Sheets /DB backups 
     - Google Drive Links For Customers 
 
-[Loading The What-if Data + The Calculated Data ]
 [Calender Widget in HTMl and Make it Standard For Browsers ?]
 [When Date is Disabled It Does NOT sent any Value to the Request ]
 k0018 Is Not Working On Shaimaa Account 
-Review The Source Codes and Edit them [ In General ]
 the Correlated Data Fields
-
-===================================
-For Calculated Data : 
-    - Create Custom Event and Assign it to HTML elements 
-    [DONE]
-    - Upon Clicking On load Data Fire this Custom Event and Dispach it to the elements 
-    [DONE]
-    - In html elements those listening For events , add listening to this Custom Event also 
-    - GROUP BY GROUP 
-    - In Collect Files Also 
-    - 
