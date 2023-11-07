@@ -9,11 +9,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'CustomerLocation'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
                                                          document.getElementById('approval').setAttribute('value'" .
@@ -25,7 +25,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>
@@ -58,15 +58,15 @@
         <div class="col-sm-6">
             <label for="" class="form-input-label bg-light w-100 fw-bold"> {{ __('Branches', [], 'ar') }} </label>
             @php
-                
+
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'Branches'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
                                                          document.getElementById('approval').setAttribute('value'" .
@@ -78,7 +78,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>
@@ -112,15 +112,15 @@
                 {{ __('ValueBondOrExceptionBranches', [], 'ar') }}
             </label>
             @php
-                
+
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ValueBondOrExceptionBranches'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
                                                          document.getElementById('approval').setAttribute('value'" .
@@ -132,7 +132,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>
@@ -164,15 +164,15 @@
         <div class="col-sm-12">
             <label for="" class="form-input-label bg-light w-100 fw-bold"> {{ __('Notes', [], 'ar') }} </label>
             @php
-                
+
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'Notes'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
                                                          document.getElementById('approval').setAttribute('value'" .
@@ -184,7 +184,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>

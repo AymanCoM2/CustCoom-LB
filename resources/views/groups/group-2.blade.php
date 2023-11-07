@@ -11,8 +11,8 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'OpenAccountPropose'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
@@ -25,7 +25,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>
@@ -40,7 +40,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'OpenAccountPropose')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('OpenAccountPropose', $customerMySqlData->OpenAccountPropose)) {
                             $res = 'checked';
                         }
@@ -82,11 +82,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'CommercialRegister'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
                                                          document.getElementById('approval').setAttribute('value'" .
@@ -98,7 +98,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>
@@ -112,7 +112,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'CommercialRegister')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('CommercialRegister', $customerMySqlData->CommercialRegister)) {
                             $res = 'checked';
                         }
@@ -148,11 +148,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'CRExpiryDate'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
                                                          document.getElementById('approval').setAttribute('value'" .
@@ -164,7 +164,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>
@@ -178,7 +178,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'CRExpiryDate')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('CRExpiryDate', $customerMySqlData->CRExpiryDate)) {
                             $res = 'checked';
                         }
@@ -209,11 +209,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'CrCnMatch'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
                                                          document.getElementById('approval').setAttribute('value'" .
@@ -225,7 +225,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>
@@ -239,7 +239,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'CrCnMatch')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('CrCnMatch', $customerMySqlData->CrCnMatch)) {
                             $res = 'checked';
                         }
@@ -289,11 +289,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'TaxCard'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
                                                          document.getElementById('approval').setAttribute('value'" .
@@ -305,7 +305,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>
@@ -319,7 +319,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'TaxCard')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('TaxCard', $customerMySqlData->TaxCard)) {
                             $res = 'checked';
                         }

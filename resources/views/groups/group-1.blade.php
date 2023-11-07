@@ -9,7 +9,7 @@
         {{-- 2 --}}
         <div class="col-sm-6">
             <label for="inputEmail4" class="form-label bg-light  w-100 fw-bold">Group :</label>
-            <span>{{ $customerSapData['GroupName'] }}</span> 
+            <span>{{ $customerSapData['GroupName'] }}</span>
             <span id="COM">{{ $customerMySqlData['COM'] }}</span>
         </div>
 
@@ -40,8 +40,8 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'CustomerType'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
@@ -54,7 +54,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>
@@ -63,7 +63,7 @@
                         endif;
                     endforeach;
                 endif;
-                
+
                 if (in_array('CustomerType', $allDDLColumn)):
                     echo '<div class="form-check
                     endif; form-check-inline">';
@@ -104,11 +104,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'CustomerName'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
                                                          document.getElementById('approval').setAttribute('value'" .
@@ -120,7 +120,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>
@@ -134,7 +134,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'CustomerName')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('CustomerName', $customerMySqlData->CustomerName)) {
                             $res = 'checked';
                         }
@@ -160,11 +160,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'OrgLegalStatue'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                            onclick=\"event.preventDefault();
                                                          document.getElementById('approval').setAttribute('value'" .
@@ -176,7 +176,7 @@
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" >
+                                            title=\"$fullData\" data-bs-html='true' >
                                             <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                                 type='button' disabled><i class='bx bx-question-mark'></i></button>
                                         </span>

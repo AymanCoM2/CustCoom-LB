@@ -86,7 +86,7 @@
                                             $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                                             $fullData = $data . $data2;
                                             // dd($fullData)  ;
-                                    
+
                                             echo "<a class=\"\" href=''
                                        onclick=\"event.preventDefault();
                                                      document.getElementById('approval').setAttribute('value'" .
@@ -98,7 +98,7 @@
                                             echo '</a>';
                                             echo "
                                             <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                        title=\"$fullData\" >
+                                        title=\"$fullData\" data-bs-html='true' >
                                         <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                             type='button' disabled><i class='bx bx-question-mark'></i></button>
                                     </span>
@@ -288,11 +288,11 @@
                                 $f_3 = $calcSix == 'مطابق';
                                 $f_4 = $customerMySqlData->ObCrMatch == 'مطابق';
                                 $firstTrue = $f_1 && $f_2 && $f_3 && $f_4;
-                                
+
                                 $s_1 = $customerMySqlData->OrderBond == 'مستثنى';
                                 $s_2 = $customerMySqlData->ValueOrderException == $customerSapData['CreditLine'];
                                 $secondTrue = $s_1 && $s_2;
-                                
+
                                 if ($firstTrue || $secondTrue) {
                                     echo 'سارى';
                                 } else {

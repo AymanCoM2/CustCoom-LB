@@ -8,11 +8,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'OwnerImg'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                        onclick=\"event.preventDefault();
                                                      document.getElementById('approval').setAttribute('value'" .
@@ -24,7 +24,7 @@
                             echo '</a>';
                             echo "
                                             <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                        title=\"$fullData\" >
+                                        title=\"$fullData\" data-bs-html='true' >
                                         <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                             type='button' disabled><i class='bx bx-question-mark'></i></button>
                                     </span>
@@ -38,7 +38,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'OwnerImg')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('OwnerImg', $customerMySqlData->OwnerImg)) {
                             $res = 'checked';
                         }
@@ -77,8 +77,8 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'OwnerIDExpiryDate'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
                             echo "<a class=\"al\" href=''
@@ -92,7 +92,7 @@
                             echo '</a>';
                             echo "
                                             <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                        title=\"$fullData\" >
+                                        title=\"$fullData\" data-bs-html='true' >
                                         <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                             type='button' disabled><i class='bx bx-question-mark'></i></button>
                                     </span>
@@ -106,7 +106,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'OwnerIDExpiryDate')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('OwnerIDExpiryDate', $customerMySqlData->OwnerIDExpiryDate)) {
                             $res = 'checked';
                         }
@@ -149,11 +149,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ObSupporterIdImg'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                        onclick=\"event.preventDefault();
                                                      document.getElementById('approval').setAttribute('value'" .
@@ -165,7 +165,7 @@
                             echo '</a>';
                             echo "
                                             <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                        title=\"$fullData\" >
+                                        title=\"$fullData\" data-bs-html='true' >
                                         <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                             type='button' disabled><i class='bx bx-question-mark'></i></button>
                                     </span>
@@ -179,7 +179,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'ObSupporterIdImg')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('ObSupporterIdImg', $customerMySqlData->ObSupporterIdImg)) {
                             $res = 'checked';
                         }
@@ -216,11 +216,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ExpiryDateGuarantorPromissoryNote'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                        onclick=\"event.preventDefault();
                                                      document.getElementById('approval').setAttribute('value'" .
@@ -232,7 +232,7 @@
                             echo '</a>';
                             echo "
                                             <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                        title=\"$fullData\" >
+                                        title=\"$fullData\" data-bs-html='true' >
                                         <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                             type='button' disabled><i class='bx bx-question-mark'></i></button>
                                     </span>
@@ -246,7 +246,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'ExpiryDateGuarantorPromissoryNote')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('ExpiryDateGuarantorPromissoryNote', $customerMySqlData->ExpiryDateGuarantorPromissoryNote)) {
                             $res = 'checked';
                         }
@@ -262,7 +262,7 @@
                 else:
                     $oldExpiryDateGuarantorPromissoryNote_h = old('ExpiryDateGuarantorPromissoryNote_h', $hijriData);
                     echo "<input type='text' class='form-control' value=\"$oldExpiryDateGuarantorPromissoryNote_h\" name='ExpiryDateGuarantorPromissoryNote_h' >";
-                
+
                     $oldExpiryDateGuarantorPromissoryNote = old('ExpiryDateGuarantorPromissoryNote', $customerMySqlData->ExpiryDateGuarantorPromissoryNote ? $formatted2 : '');
                     echo "<input type='date' id='start'  class='form-control' value=\"$oldExpiryDateGuarantorPromissoryNote\" name='ExpiryDateGuarantorPromissoryNote' />";
                 endif;
@@ -291,11 +291,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ObFrstSeeIdImg'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                        onclick=\"event.preventDefault();
                                                      document.getElementById('approval').setAttribute('value'" .
@@ -307,7 +307,7 @@
                             echo '</a>';
                             echo "
                                             <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                        title=\"$fullData\" >
+                                        title=\"$fullData\" data-bs-html='true' >
                                         <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                             type='button' disabled><i class='bx bx-question-mark'></i></button>
                                     </span>
@@ -321,7 +321,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'ObFrstSeeIdImg')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('ObFrstSeeIdImg', $customerMySqlData->ObFrstSeeIdImg)) {
                             $res = 'checked';
                         }
@@ -357,11 +357,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ExpirationDateFirstWitness'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                        onclick=\"event.preventDefault();
                                                      document.getElementById('approval').setAttribute('value'" .
@@ -373,7 +373,7 @@
                             echo '</a>';
                             echo "
                                             <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                        title=\"$fullData\" >
+                                        title=\"$fullData\" data-bs-html='true' >
                                         <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                             type='button' disabled><i class='bx bx-question-mark'></i></button>
                                     </span>
@@ -387,7 +387,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'ExpirationDateFirstWitness')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('ExpirationDateFirstWitness', $customerMySqlData->ExpirationDateFirstWitness)) {
                             $res = 'checked';
                         }
@@ -429,11 +429,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ObScndSeeIdImg'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                        onclick=\"event.preventDefault();
                                                      document.getElementById('approval').setAttribute('value'" .
@@ -445,7 +445,7 @@
                             echo '</a>';
                             echo "
                                             <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                        title=\"$fullData\" >
+                                        title=\"$fullData\" data-bs-html='true' >
                                         <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                             type='button' disabled><i class='bx bx-question-mark'></i></button>
                                     </span>
@@ -459,7 +459,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'ObScndSeeIdImg')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('ObScndSeeIdImg', $customerMySqlData->ObScndSeeIdImg)) {
                             $res = 'checked';
                         }
@@ -495,11 +495,11 @@
                 if (Auth::user()->isSuperUser == 1):
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ExpiryDateSecondWitness'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . ' ,,New Value : ' . $singleEditArray['newValue'];
-                            $data2 = ',,Editor Name : ' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
-                
+
                             echo "<a class=\"al\" href=''
                                        onclick=\"event.preventDefault();
                                                      document.getElementById('approval').setAttribute('value'" .
@@ -511,7 +511,7 @@
                             echo '</a>';
                             echo "
                                             <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                        title=\"$fullData\" >
+                                        title=\"$fullData\" data-bs-html='true' >
                                         <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
                                             type='button' disabled><i class='bx bx-question-mark'></i></button>
                                     </span>
@@ -525,7 +525,7 @@
                     $allOptions = App\Models\ColumnOption::where('colName', 'ExpiryDateSecondWitness')->get();
                     foreach ($allOptions as $k1 => $val1):
                         $res = '';
-                
+
                         if ($val1->colOption == old('ExpiryDateSecondWitness', $customerMySqlData->ExpiryDateSecondWitness)) {
                             $res = 'checked';
                         }

@@ -78,12 +78,14 @@
         </div>
     @endif
 
-    <div class="alert alert-danger">
-        <a href="{{ route('get-customer-form-g', $cardCode) }}" id="iframeLink_x">تحميل بيانات العميل المسجلة حاليا</a>
-        <br>
-        <a href="{{ route('get-customer-form-g-what-if', $cardCode) }}" id="iframeLink_y">تحميل بيانات العميل في حالة
-            الموافقة على التعديلات</a>
-    </div>
+    <a class="btn p-1 border border-primary" href="{{ route('get-customer-form-g', $cardCode) }}"
+        id="iframeLink_x">تحميل بيانات العميل
+        المسجلة حاليا</a>
+    <br>
+    <a class="btn p-1 border border-danger" href="{{ route('get-customer-form-g-what-if', $cardCode) }}"
+        id="iframeLink_y">تحميل بيانات
+        العميل في حالة
+        الموافقة على التعديلات</a>
 
     <div id="myModal" class="modalOmola">
         <div class="modal-contentOmola">
