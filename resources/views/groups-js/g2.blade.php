@@ -10,7 +10,7 @@
                 calcElement_1.text('يجب اعادة طلبه');
             }
         } else {
-            console.log("Radio button unchecked.");
+            // console.log("Radio button unchecked.");
         }
     });
 
@@ -32,7 +32,7 @@
                 $('div[name="CrCnMatchLabel"]').removeClass('border border-danger');
             }
         } else {
-            console.log("Radio button unchecked.");
+            // console.log("Radio button unchecked.");
         }
     });
 
@@ -46,7 +46,7 @@
                 $('p[name="Rttv_dt_e"]').text('يجب اعادة طلبه');
             }
         } else {
-            console.log("Radio button unchecked.");
+            // console.log("Radio button unchecked.");
         }
     });
 
@@ -69,7 +69,7 @@
     function theMixFormulaG2_1() {
         let fixedPeriod = 1;
         let date_2_22 = $(':input[name="CRExpiryDate"]').val();
-        console.log('Gorgy Now  : ', date_2_22);
+        // console.log('Gorgy Now  : ', date_2_22);
         var check_2_1 = $('input[name="CommercialRegister"]:checked').val();
         var check_2_2 = $('input[name="CrCnMatch"]:checked').val();
         var todayExtraFixed = new Date();

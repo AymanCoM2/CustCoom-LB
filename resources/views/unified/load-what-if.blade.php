@@ -1,6 +1,5 @@
 <script>
     // Select Elements On By Sumbmitted With the New Data  -> 
-
     // 1
     let userCardCode = $('#what_if_card_code').val();
     $('#load_what_if').on('click', function() {
@@ -37,7 +36,7 @@
     function fillTheForm(resultJsonData) {
         let jsonDataObject = JSON.parse(resultJsonData);
         jsonDataObject.forEach(element => {
-            console.log(element.fieldName, element.newValue);
+            // console.log(element.fieldName, element.newValue);
             let els = document.getElementsByName(element.fieldName);
             if (els.length > 0) {
                 // Check the type of the first element in the collection (index 0)
@@ -62,7 +61,12 @@
                         bubbles: true,
                         cancelable: true
                     });
+                    let event2 = new Event("myCustomEvent", {
+                        bubbles: true,
+                        cancelable: true
+                    });
                     el.dispatchEvent(event);
+                    el.dispatchEvent(event2);
                 }
             }
         });

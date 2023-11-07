@@ -25,13 +25,13 @@
     function f1() {
         const selectedDate = CRExpiryDateInput.value;
         if (selectedDate) {
-            console.log(selectedDate);
+            // console.log(selectedDate);
             const dateParts = selectedDate.split("-");
             const year = dateParts[0];
             const month = dateParts[1];
             const day = dateParts[2];
             const forma = `${day}-${month}-${year}`;
-            console.log(forma);
+            // console.log(forma);
             const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
             // Make an API call using AJAX
             fetch(apiEndpoint)
@@ -51,7 +51,7 @@
     function f2() {
         const selectedDate = CRExpiryDate_hInput.value;
         if (selectedDate) {
-            console.log(selectedDate);
+            // console.log(selectedDate);
             const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
             // Make an API call using AJAX
             fetch(apiEndpoint)
@@ -63,7 +63,7 @@
                     const month = dateParts[1];
                     const day = dateParts[2];
                     const forma = `${day}-${month}-${year}`;
-                    console.log(forma);
+                    // console.log(forma);
                     CRExpiryDateInput.value = forma;
                 })
                 .catch(error => {
