@@ -2,8 +2,12 @@ TODOS for the Projects :
     - REPORTS
     - Export excel Mysql + sap + Calculated in Sheets /DB backups 
     - Google Drive Links For Customers 
-
-[Calender Widget in HTMl and Make it Standard For Browsers ?]
-[When Date is Disabled It Does NOT sent any Value to the Request ]
+------------------------------
 k0018 Is Not Working On Shaimaa Account 
-the Correlated Data Fields
+    - Get all models that have the CardCode of k0018 
+    - and Change this Small One to the Bigger One "k -> K"
+    - Now you are all set 
+------------------------------
+[When Date is Disabled It Does NOT send any Value to the Request ]
+    - Alternative is Needed  ; 
+------------------------------

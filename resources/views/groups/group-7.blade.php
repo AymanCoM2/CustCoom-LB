@@ -180,7 +180,7 @@
                                 $singleEditArray['id'] .
                                 ");
                                                          document.getElementById('logout-form').submit();\">";
-                            echo 'Approve';
+                            echo 'Dis-Approve';
                             echo '</a>';
                             echo "
                                                 <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
