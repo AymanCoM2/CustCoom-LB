@@ -9,5 +9,5 @@ k0018 Is Not Working On Shaimaa Account
     - Now you are all set 
 ------------------------------
 [When Date is Disabled It Does NOT send any Value to the Request ]
-    - Alternative is Needed  ; 
+    - Alternative is Needed
 ------------------------------

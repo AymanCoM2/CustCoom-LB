@@ -4,7 +4,14 @@
     // 1
     let userCardCode = $('#what_if_card_code').val();
     $('#load_what_if').on('click', function() {
-        alert('Button is Clicked ' + userCardCode);
+        // alert('Button is Clicked ' + userCardCode);
+        Toastify({
+            text: "Customer is Loaded :" + userCardCode,
+            className: "info",
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)",
+            }
+        }).showToast();
         loadDataFromLink(userCardCode);
     });
 
