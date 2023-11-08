@@ -10,7 +10,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'OrderBond'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 
@@ -67,7 +67,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ValueOrderException'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 
@@ -131,7 +131,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'CreationDateOrderOrException'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 
@@ -256,7 +256,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ObCrMatch'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 

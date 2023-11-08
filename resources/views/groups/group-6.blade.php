@@ -10,7 +10,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'NationalAddrOrgImg'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 
@@ -77,7 +77,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ExpiryDateNationalAddress'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 
@@ -149,7 +149,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'NationalAddrFirstSupOb'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 
@@ -214,7 +214,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ExpiryDateNationalAddressReserveGuarantor'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 

@@ -1,19 +1,11 @@
-TODOS for the Projects : 
-    - REPORTS
-    - Export excel Mysql + sap + Calculated in Sheets /DB backups 
-    - Google Drive Links For Customers 
+Google Drive Links For Customers 
 ------------------------------
-k0018 Is Not Working On Shaimaa Account 
+k0018 Is Not Working On Shaimaa Account  / Make a Route 
     - Get all models that have the CardCode of k0018 
     - and Change this Small One to the Bigger One "k -> K"
     - Now you are all set 
 ------------------------------
-[When Date is Disabled It Does NOT send any Value to the Request ]
-    - Alternative is Needed
-------------------------------
-The History in Group 3 ? 
-The Name Of Editor is "Admin" For all ToolTips ?  Why ? 
-Excel Backup File with Data ? 
+Excel Backup/Export excel Mysql + sap + Calculated in Sheets/DB backups 
 ===============================
 Notification + Messages Models For the Editors ? / Admins Maybe also ?
 ------------------------------

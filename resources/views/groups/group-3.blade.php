@@ -8,7 +8,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'CommLicense'):
                             $data = 'Old Value:' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . "\n" . $data2;
                             // dd($fullData)  ;
                             echo "<a class=\"al\" href=''
@@ -71,7 +71,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ExpirydateCommlicense'):
                             $data = 'Old Value:' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 

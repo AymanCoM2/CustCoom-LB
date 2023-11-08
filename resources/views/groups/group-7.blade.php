@@ -10,7 +10,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'CustomerLocation'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 
@@ -63,7 +63,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'Branches'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 
@@ -117,7 +117,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'ValueBondOrExceptionBranches'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 
@@ -169,7 +169,7 @@
                     foreach ($r as $singleEditArray):
                         if ($singleEditArray['fieldName'] == 'Notes'):
                             $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray['editor_id'])->first()->name;
+                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
                             $fullData = $data . $data2;
                             // dd($fullData)  ;
 

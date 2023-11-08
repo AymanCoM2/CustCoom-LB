@@ -14,6 +14,7 @@
         ->get()
         ->makeHidden(['created_at', 'updated_at'])
         ->toArray();
+    // dd(App\Models\User::find($r[0])->first()->name);
 @endphp
 <!DOCTYPE html>
 <html lang="en">
