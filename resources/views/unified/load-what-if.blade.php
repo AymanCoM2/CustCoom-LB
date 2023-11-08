@@ -1,5 +1,4 @@
 <script>
-    // Select Elements On By Sumbmitted With the New Data  -> 
     // 1
     let userCardCode = $('#what_if_card_code').val();
     $('#load_what_if').on('click', function() {
@@ -38,44 +37,40 @@
         jsonDataObject.forEach(element => {
             // console.log(element.fieldName, element.newValue);
             let els = document.getElementsByName(element.fieldName);
-            if (els.length > 0) {
-                // Check the type of the first element in the collection (index 0)
-                let el = els[0];
-                if (el.type === "radio") {
-                    // For radio buttons, loop through all elements with the same name
-                    for (let i = 0; i < els.length; i++) {
-                        if (els[i].value === element.newValue) {
-                            els[i].checked = true;
-                            // let event = new Event("change", {
-                            //     bubbles: true,
-                            //     cancelable: true
-                            // });
-                            // el.dispatchEvent(event);
-                        } else {
-                            els[i].checked = false;
-                        }
+
+            // if (els.length > 0) { // IT IS ALWAYS Bigger than 0 
+            // Check the type of the first element in the collection (index 0)
+            let el = els[0];
+            if (el.type === "radio") {
+                // For radio buttons, loop through all elements with the same name
+                for (let i = 0; i < els.length; i++) {
+                    if (els[i].value === element.newValue) {
+                        els[i].checked = true;
+                        // let event = new Event("change", {
+                        //     bubbles: true,
+                        //     cancelable: true
+                        // });
+                        // el.dispatchEvent(event);
+                    } else {
+                        els[i].checked = false;
                     }
-                } else {
-                    el.value = element.newValue;
-                    let event = new Event("change", {
-                        bubbles: true,
-                        cancelable: true
-                    });
-                    let event2 = new Event("myCustomEvent", {
-                        bubbles: true,
-                        cancelable: true
-                    });
-                    el.dispatchEvent(event);
-                    el.dispatchEvent(event2);
                 }
+            } else {
+                el.value = element.newValue;
+                let event = new Event("change", {
+                    bubbles: true,
+                    cancelable: true
+                });
+                el.dispatchEvent(event);
             }
+            // }
         });
         // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
         const radioButtons = document.querySelectorAll('input[type="radio"]');
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         const inputElements = document.querySelectorAll('input');
 
-        [...radioButtons, ...checkboxes, ...inputElements].forEach(function(element) {
+        [...radioButtons, ...checkboxes, ...inputElements, ...inputElementsX].forEach(function(element) {
             element.dispatchEvent(customEvent);
         });
         // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 

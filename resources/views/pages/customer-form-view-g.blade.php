@@ -256,22 +256,6 @@
                 }
             });
 
-            // ALERT START 
-            // // Flag to track if form is submitted
-            // let formSubmitted = false;
-            // // Set a listener for form submission
-            // document.getElementById('groupFormUpdate').addEventListener('submit', function() {
-            //     formSubmitted = true;
-            // });
-            // // Set a listener for beforeunload event
-            // window.addEventListener('beforeunload', function(e) {
-            //     if (!formSubmitted) {
-            //         e.preventDefault();
-            //         e.returnValue = undefined; // Necessary for some browsers
-            //         alert('Be Sure that all changes Are Saved !');
-            //     }
-            // });
-            // ALERT END  
 
             // Above is the Third  One 
             const CRExpiryDateInput = document.getElementsByName("CRExpiryDate")[0];
@@ -348,6 +332,7 @@
                     CRExpiryDate_hInput.value = ""; // Reset the value if the date is cleared
                 }
             });
+
 
             ExpirydateCommlicense.addEventListener("change", function() {
                 const selectedDate = ExpirydateCommlicense.value;
