@@ -12,8 +12,8 @@
             // alert('The nearest radio button value is something else');
             $(this).closest('.col-sm-4').find('input[type="date"]').attr('required', false);
             $(this).closest('.col-sm-4').find('input[type="date"]').removeClass('border border-danger');
-            $(this).closest('.col-sm-4').find('input[type="date"]').val('');
-            $(':input[name="OwnerIDExpiryDate_h"]').val('');
+            $(this).closest('.col-sm-4').find('input[type="date"]').val(null);
+            $(':input[name="OwnerIDExpiryDate_h"]').val(null);
             // $(this).closest('.col-sm-4').find('input[type="date"]').prop('disabled', true);
         }
     });
@@ -31,8 +31,8 @@
         } else {
             $(':input[name="OwnerIDExpiryDate"]').attr('required', false);
             $(':input[name="OwnerIDExpiryDate"]').removeClass('border border-danger');
-            $(':input[name="OwnerIDExpiryDate"]').val('');
-            $(':input[name="OwnerIDExpiryDate_h"]').val('');
+            $(':input[name="OwnerIDExpiryDate"]').val(null);
+            $(':input[name="OwnerIDExpiryDate_h"]').val(null);
             // $(':input[name="OwnerIDExpiryDate"]').prop('disabled', true);
         }
     });
@@ -59,8 +59,8 @@
         } else {
             $(':input[name="ExpiryDateGuarantorPromissoryNote"]').attr('required', false);
             $(':input[name="ExpiryDateGuarantorPromissoryNote"]').removeClass('border border-danger');
-            $(':input[name="ExpiryDateGuarantorPromissoryNote"]').val('');
-            $(':input[name="ExpiryDateGuarantorPromissoryNote_h"]').val('');
+            $(':input[name="ExpiryDateGuarantorPromissoryNote"]').val(null);
+            $(':input[name="ExpiryDateGuarantorPromissoryNote_h"]').val(null);
             // $(':input[name="ExpiryDateGuarantorPromissoryNote"]').prop('disabled', true);
 
         }
@@ -91,8 +91,8 @@
             // $('p[name="hala_3"]').text('يجب اعادة طلبه');
             $(':input[name="ExpirationDateFirstWitness"]').attr('required', false);
             $(':input[name="ExpirationDateFirstWitness"]').removeClass('border border-danger');
-            $(':input[name="ExpirationDateFirstWitness"]').val('');
-            $(':input[name="ExpirationDateFirstWitness_h"]').val('');
+            $(':input[name="ExpirationDateFirstWitness"]').val(null);
+            $(':input[name="ExpirationDateFirstWitness_h"]').val(null);
             // $(':input[name="ExpirationDateFirstWitness"]').prop('disabled', true);
         }
     });
@@ -119,8 +119,8 @@
         } else {
             $(':input[name="ExpiryDateSecondWitness"]').attr('required', false);
             $(':input[name="ExpiryDateSecondWitness"]').removeClass('border border-danger');
-            $(':input[name="ExpiryDateSecondWitness"]').val('');
-            $(':input[name="ExpiryDateSecondWitness_h"]').val('');
+            $(':input[name="ExpiryDateSecondWitness"]').val(null);
+            $(':input[name="ExpiryDateSecondWitness_h"]').val(null);
             // $(':input[name="ExpiryDateSecondWitness"]').prop('disabled', true);
         }
     });

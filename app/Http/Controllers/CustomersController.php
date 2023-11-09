@@ -277,6 +277,7 @@ class CustomersController extends Controller
     public function handleCustomersForm(FormGroupingRequest $request)
     {
         $filteredFields = array_filter($request->all());
+        // dd($filteredFields);
         foreach ($filteredFields as $key => $value) {
             if ($key == 'id' || $key == '_token' || $key == 'CardCode') {
                 // DO NOTTHING  ; 
@@ -293,6 +294,7 @@ class CustomersController extends Controller
         if ($request->user()->isSuperUser == 1) {
             $updatedCustomer  = Customers::where('id', $request->id)->first();
             $updatedCustomer->update($request->all()); // ^ This is the Update 
+            $updatedCustomer->save();
             // Check Sanad and  Sejel 
             if (!isset($request->CommercialRegister)) {
                 $updatedCustomer->CommercialRegister = null;
@@ -334,10 +336,6 @@ class CustomersController extends Controller
             if ($updatedCustomer->CommLicense == "غير موجود" ||  $updatedCustomer->CommLicense == null) {
                 $updatedCustomer->ExpirydateCommlicense = null;
             }
-
-
-
-
 
 
             //------------------------------
