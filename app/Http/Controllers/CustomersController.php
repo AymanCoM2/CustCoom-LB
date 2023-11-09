@@ -335,6 +335,36 @@ class CustomersController extends Controller
                 $updatedCustomer->ExpirydateCommlicense = null;
             }
 
+
+
+
+
+
+            //------------------------------
+            if ($updatedCustomer->OwnerImg == "غير موجود" ||  $updatedCustomer->OwnerImg == null) {
+                $updatedCustomer->OwnerIDExpiryDate = null;
+            }
+            if ($updatedCustomer->ObSupporterIdImg == "غير موجود" ||  $updatedCustomer->ObSupporterIdImg == null) {
+                $updatedCustomer->ExpiryDateGuarantorPromissoryNote = null;
+            }
+            if ($updatedCustomer->ObFrstSeeIdImg == "غير موجود" ||  $updatedCustomer->ObFrstSeeIdImg == null) {
+                $updatedCustomer->ExpirationDateFirstWitness = null;
+            }
+            if ($updatedCustomer->ObScndSeeIdImg == "غير موجود" ||  $updatedCustomer->ObScndSeeIdImg == null) {
+                $updatedCustomer->ExpiryDateSecondWitness = null;
+            }
+            //--------------------------------
+
+            //------------------------------
+            if ($updatedCustomer->NationalAddrOrgImg == "غير موجود" ||  $updatedCustomer->NationalAddrOrgImg == null) {
+                $updatedCustomer->ExpiryDateNationalAddress = null;
+            }
+            if ($updatedCustomer->NationalAddrFirstSupOb == "غير موجود" ||  $updatedCustomer->NationalAddrFirstSupOb == null) {
+                $updatedCustomer->ExpiryDateNationalAddressReserveGuarantor = null;
+            }
+
+            //--------------------------------
+
             $updatedCustomer->save();
             return back();
         } else {
