@@ -143,7 +143,16 @@
                         <div class="card col-6 ">
                             <img src="{{ asset('storage/' . $document->path) }}" alt="" class="imgmime">
                             <div class="card-header">
-                                <p>{{ $document->path }}</p>
+
+                                @php
+                                    $finalName = '';
+                                    $fn = explode('/', $document->path);
+                                    $finalName = end($fn);
+                                    $fn = explode('--', $finalName);
+                                    $finalName = end($fn);
+                                @endphp
+                                <p>{{ $finalName }}</p>
+                                {{-- <p>{{ $document->path }}</p> --}}
                                 @if (Auth::user()->isSuperUser == 1)
                                     <div class="row">
                                         <a href="{{ route('delete-docu') }}" class="btn btn-danger"
