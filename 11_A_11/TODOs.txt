@@ -1,10 +1,5 @@
 Google Drive Links For Customers 
 ------------------------------
-k0018 Is Not Working On Shaimaa Account  / Make a Route 
-    - Get all models that have the CardCode of k0018 
-    - and Change this Small One to the Bigger One "k -> K"
-    - Now you are all set 
-------------------------------
 Excel Backup/Export excel Mysql + sap + Calculated in Sheets/DB backups 
 ===============================
 Notification + Messages Models For the Editors ? / Admins Maybe also ?
