@@ -28,9 +28,9 @@ class LocalStorageController extends Controller
             $aDocument  = new Documents();
             $fileName  = $aPdfFile->getClientOriginalName();
             // Remove dashes, spaces, and plus signs
-            $fileName = str_replace(["-", " ", "+"], "", $fileName);
+            $fileName = str_replace(["-", " ", "+", "@", "#", "$", "%", "^", "&", "*"], "", $fileName);
             // Remove all non-alphanumeric characters
-            $fileName = preg_replace("/[^a-zA-Z0-9]/", "", $fileName);
+            // $fileName = preg_replace("/[^a-zA-Z0-9]/", "", $fileName);
             $mimeParts  = explode('/', $aPdfFile->getMimeType());
             $realExtension  = end($mimeParts);
             $newFileName  = time() . '--' . $fileName; // With timestamp
