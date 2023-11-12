@@ -68,6 +68,38 @@ class ApproveController extends Controller
         if ($customer->CommLicense == "غير موجود" ||  $customer->CommLicense == null) {
             $customer->ExpirydateCommlicense = null;
         }
+
+        //------------------------------
+        if ($customer->OwnerImg == "غير موجود" ||  $customer->OwnerImg == null) {
+            $customer->OwnerIDExpiryDate = null;
+            $customer->save();
+        }
+        if ($customer->ObSupporterIdImg == "غير موجود" ||  $customer->ObSupporterIdImg == null) {
+            $customer->ExpiryDateGuarantorPromissoryNote = null;
+            $customer->save();
+        }
+        if ($customer->ObFrstSeeIdImg == "غير موجود" ||  $customer->ObFrstSeeIdImg == null) {
+            $customer->ExpirationDateFirstWitness = null;
+            $customer->save();
+        }
+        if ($customer->ObScndSeeIdImg == "غير موجود" ||  $customer->ObScndSeeIdImg == null) {
+            $customer->ExpiryDateSecondWitness = null;
+            $customer->save();
+        }
+        //--------------------------------
+
+        //------------------------------
+        if ($customer->NationalAddrOrgImg == "غير موجود" ||  $customer->NationalAddrOrgImg == null) {
+            $customer->ExpiryDateNationalAddress = null;
+            $customer->save();
+        }
+        if ($customer->NationalAddrFirstSupOb == "غير موجود" ||  $customer->NationalAddrFirstSupOb == null) {
+            $customer->ExpiryDateNationalAddressReserveGuarantor = null;
+            $customer->save();
+        }
+
+        //--------------------------------
+
         return back();
     }
 }

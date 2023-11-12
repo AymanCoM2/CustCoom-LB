@@ -290,7 +290,6 @@ class CustomersController extends Controller
                 $oneLog->save();
             }
         }
-
         if ($request->user()->isSuperUser == 1) {
             $updatedCustomer  = Customers::where('id', $request->id)->first();
             $updatedCustomer->update($request->all()); // ^ This is the Update 
@@ -324,44 +323,12 @@ class CustomersController extends Controller
                 $updatedCustomer->ObFrstSeeIdImg = null;
                 $updatedCustomer->ObScndSeeIdImg = null;
                 $updatedCustomer->NationalAddrFirstSupOb = null;
-
                 $updatedCustomer->ExpiryDateGuarantorPromissoryNote = null;
                 $updatedCustomer->ExpirationDateFirstWitness = null;
                 $updatedCustomer->ExpiryDateSecondWitness = null;
                 $updatedCustomer->ExpiryDateNationalAddressReserveGuarantor = null;
-
                 $updatedCustomer->save();
             }
-
-            if ($updatedCustomer->CommLicense == "غير موجود" ||  $updatedCustomer->CommLicense == null) {
-                $updatedCustomer->ExpirydateCommlicense = null;
-            }
-
-
-            //------------------------------
-            if ($updatedCustomer->OwnerImg == "غير موجود" ||  $updatedCustomer->OwnerImg == null) {
-                $updatedCustomer->OwnerIDExpiryDate = null;
-            }
-            if ($updatedCustomer->ObSupporterIdImg == "غير موجود" ||  $updatedCustomer->ObSupporterIdImg == null) {
-                $updatedCustomer->ExpiryDateGuarantorPromissoryNote = null;
-            }
-            if ($updatedCustomer->ObFrstSeeIdImg == "غير موجود" ||  $updatedCustomer->ObFrstSeeIdImg == null) {
-                $updatedCustomer->ExpirationDateFirstWitness = null;
-            }
-            if ($updatedCustomer->ObScndSeeIdImg == "غير موجود" ||  $updatedCustomer->ObScndSeeIdImg == null) {
-                $updatedCustomer->ExpiryDateSecondWitness = null;
-            }
-            //--------------------------------
-
-            //------------------------------
-            if ($updatedCustomer->NationalAddrOrgImg == "غير موجود" ||  $updatedCustomer->NationalAddrOrgImg == null) {
-                $updatedCustomer->ExpiryDateNationalAddress = null;
-            }
-            if ($updatedCustomer->NationalAddrFirstSupOb == "غير موجود" ||  $updatedCustomer->NationalAddrFirstSupOb == null) {
-                $updatedCustomer->ExpiryDateNationalAddressReserveGuarantor = null;
-            }
-
-            //--------------------------------
 
             $updatedCustomer->save();
             return back();
@@ -369,13 +336,13 @@ class CustomersController extends Controller
             $oldModelObject  = Customers::where('id', $request->id)->first(); // To compare each field 
             $filtered = array_filter($request->all());
             foreach ($oldModelObject->toArray() as $key => $value) {
-                if (isset($request->all()[$key])) {
-                    if ($oldModelObject[$key] == $request->all()[$key]) {
+                if (isset($filtered[$key])) {
+                    if ($oldModelObject[$key] === $filtered[$key]) {
                     } else {
-                        $editHistory  = EditHistory::where('cardCode', $oldModelObject->CardCode)
+                        $editHistory  = EditHistory::where('cardCode', $oldModelObject['CardCode'])
                             ->where('fieldName', $key)->first();
                         if ($editHistory) {
-                            $editHistory->cardCode = $oldModelObject->CardCode;
+                            $editHistory->cardCode = $oldModelObject['CardCode'];
                             $editHistory->editor_id  = $request->user()->id;
                             $editHistory->fieldName  = $key;
                             $editHistory->oldValue  = $oldModelObject[$key];
@@ -392,7 +359,7 @@ class CustomersController extends Controller
                             $editLog  = new EditHistory();
                             $oldValue = $oldModelObject[$key];
                             $newValue = $filtered[$key];
-                            $editLog->cardCode = $oldModelObject->CardCode;
+                            $editLog->cardCode = $oldModelObject['CardCode'];
                             $editLog->editor_id  = $request->user()->id;
                             $editLog->fieldName  = $key;
                             $editLog->oldValue  = $oldValue;

@@ -1,5 +1,5 @@
 <script>
-    $('.unified_check').on("myCustomEvent change", function() {
+    $('.unified_check').on("change", function() {
         // Find the nearest radio button
         var nearestRadio = $(this).closest('.row').find('input[type="radio"]:checked');
         // Check if the nearest radio button's value is "موجود"
