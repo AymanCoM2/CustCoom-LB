@@ -29,8 +29,8 @@ class ApproveController extends Controller
         $notifyEditor  = new EditorOnceTimeNOtification();
         $notifyEditor->editor_id  = $editGrave->editor_id;
         $notifyEditor->field_name  = $approvedLog->fieldName;
-        $notifyEditor->field_old_value  = $approvedLog->oldValue;
-        $notifyEditor->field_new_value  = $approvedLog->newValue;
+        $notifyEditor->field_old_value  = $approvedLog->oldValue == null ? "" :$approvedLog->oldValue;
+        $notifyEditor->field_new_value  = $approvedLog->newValue == null ? "" :$approvedLog->newValue;
         $notifyEditor->state  = false;  // !TODO Check the Approve_all Controller ?  
         $notifyEditor->save();
         // This is a Once Time Notification and Needs To be Deleted ;
