@@ -12,7 +12,7 @@ class ImportingController extends Controller
     public function importCustomersExcel()
     {
         return view('pages.import-customers');
-    }
+    } // OK 
 
     public function storeExcelImport(ExcelRequest $request)
     {
@@ -22,7 +22,7 @@ class ImportingController extends Controller
             foreach ($collection as $key => $value) {
             }
             array_push($data, [
-                //remiving the Dummy Coulmn 
+                //remiving the Dummy Column
                 'CardCode' => $collection['رمز شريك الأعمال'],
                 'CustomerName' => $collection['اسم المالك'],
                 'CRExpiryDate' => $collection["تاريخ انتهاء السجل التجارى"],
@@ -43,7 +43,6 @@ class ImportingController extends Controller
                 'Branches' =>  $collection["الفروع"],
                 'ValueBondOrExceptionBranches' => $collection["قيمة السند او الاستثناء الاجمالية للفروع"],
 
-
                 // Now Comes the Data For the RADIO Button  : 
                 'CustomerType' => $collection["نوع العميل"],
                 'OrgLegalStatue' => $collection["الكيان القانونى"],
@@ -62,7 +61,6 @@ class ImportingController extends Controller
                 'NationalAddrFirstSupOb' => $collection[" صورة عن العنوان الوطني للضامن الاحتياطي في سند الامر"],
             ]);
         }
-
         DB::table('customers')->insert($data);
         Toastr::success('File successfully Uploaded.');
         session()->flash('message', 'File successfully Uploaded.');

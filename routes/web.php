@@ -1,9 +1,12 @@
 <?php
 
 use App\Models\CardCode;
+use App\Models\ComLog;
 use App\Models\Customers;
 use App\Models\Documents;
+use App\Models\EditGrave;
 use App\Models\EditHistory;
+use App\Models\TempDisapprove;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +24,8 @@ Route::group(['middleware' => ['auth']], __DIR__ . '/what-if-approve.php');
 Route::group(['middleware' => ['auth']], __DIR__ . '/singleCustCode.php');
 Route::group(['middleware' => ['auth']], __DIR__ . '/importingRadios.php');
 Route::group(['middleware' => ['auth']], __DIR__ . '/reports.php');
-
+Route::group(['middleware' => ['auth']], __DIR__ . '/backup.php');
+Route::group(['middleware' => ['auth']], __DIR__ . '/editorNotifications.php');
 
 Route::get('/new-codes', function (Request $request) {
     $searchTerm = $request->query('search');
@@ -32,7 +36,6 @@ Route::get('/new-codes', function (Request $request) {
     $allNewCardCodes = $query->paginate(60);
     // Append the search term to the pagination links
     $allNewCardCodes->appends(['search' => $searchTerm]);
-
     return view('pages.new-codes', compact('allNewCardCodes'));
 })->name('new-codes-get');
 
@@ -75,13 +78,3 @@ Route::get('/load-customers-files', function () {
         $userDocument->save();
     }
 });
-
-
-Route::get('/cke', function () {
-    return view('pages.cke');
-});
-
-
-Route::post('/cke', function (Request $request) {
-    dd($request);
-})->name('cke-post');

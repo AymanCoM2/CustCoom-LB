@@ -7,7 +7,7 @@
             <a href="{{ route('home') }}">
                 <div class="text logo-text">
                     <span class="name">2CooM</span>
-                    <h3>(LB)</h3>
+                    <h3>(TM)</h3>
                     @if (Auth::user())
                         <span class="profession">Welcome : {{ Auth::user()->name }}</span>
                     @endif
@@ -24,7 +24,6 @@
                 @if (Auth::user()->isSuperUser == 1)
                     <li class="nav-link">
                         <a href="{{ route('new-codes-get') }}">
-                            <i class='bx bx-message-rounded-add icon'></i>
                             <span class="text nav-text">New
                                 <span class="badge bg-danger">
                                     {{ App\Models\CardCode::all()->count() }}</span>
@@ -34,28 +33,24 @@
 
                     <li class="nav-link">
                         <a href="{{ route('get-all-customers') }}">
-                            <i class="bx bx-bar-chart-alt-2 icon"></i>
                             <span class="text nav-text">SAP Table</span>
                         </a>
                     </li>
 
                     <li class="nav-link ">
                         <a href="{{ route('get-import-customers') }}">
-                            <i class="bx bx-import icon"></i>
                             <span class="text nav-text">Import Excel</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{ route('options-get') }}">
-                            <i class="bx bx-import icon"></i>
                             <span class="text nav-text">Import Radios</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{ route('history-log') }}">
-                            <i class="bx bx-history icon"></i>
                             <span class="text nav-text">Edit History</span>
                         </a>
                     </li>
@@ -71,7 +66,6 @@
                         </a>
                     </li>
 
-
                     <li class="nav-link">
                         <a href="{{ route('customer-edit-log') }}">
                             <span class="text nav-text">
@@ -83,46 +77,40 @@
 
                     <li class="nav-link">
                         <a href="{{ route('col-types-get') }}">
-                            <i class="bx bx-history icon"></i>
                             <span class="text nav-text">Column Types</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{ route('col-ddl-get') }}">
-                            <i class="bx bx-history icon"></i>
                             <span class="text nav-text">Add Radios</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('bbb-get') }}">
-                            <i class='bx bx-vertical-center icon'></i>
-                            <span class="text nav-text">Insert[CODE]</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
                         <a href="{{ route('reports-home') }}">
-                            <i class="bx bx-search-alt icon"></i>
                             <span class="text nav-text">Reports</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{ route('reports-home-2') }}">
-                            <i class="bx bx-search-alt icon"></i>
                             <span class="text nav-text">Reports Sample 2</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{{ route('backup-excel') }}">
+                            <i class='bx bx-objects-vertical-bottom'></i>
+                            <span class="text nav-text text-white bg-success">Export/Backup Data</span>
                         </a>
                     </li>
                 @endif
 
                 @if (Auth::user()->isSuperUser == 2)
-                    {{-- Editor    --}}
-
+                    {{-- Editor --}}
                     <li class="nav-link">
                         <a href="{{ route('new-codes-get') }}">
-                            <i class='bx bx-message-rounded-add icon'></i>
                             <span class="text nav-text">New
                                 <span class="badge bg-danger">
                                     {{ App\Models\CardCode::all()->count() }}</span>
@@ -132,29 +120,36 @@
 
                     <li class="nav-link">
                         <a href="{{ route('get-all-customers') }}">
-                            <i class="bx bx-bar-chart-alt-2 icon"></i>
                             <span class="text nav-text">SAP Table</span>
                         </a>
                     </li>
 
-
                     <li class="nav-link">
-                        <a href="{{ route('bbb-get') }}">
-                            <i class='bx bx-vertical-center icon'></i>
-                            <span class="text nav-text">Insert[CODE]</span>
+                        <a href="{{ route('notify-edit') }}">
+                            <span class="text nav-text">Edit Notifications</span>
+                            @php $y =\App\Models\EditorOnceTimeNOtification::where('editor_id', request()->user()->id)->count(); @endphp
+                            <span class="badge bg-danger">{{ $y }}</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
+                        <a href="{{ route('notify-file') }}">
+                            <span class="text nav-text">File Notifications</span>
+                            @php $x  =\App\Models\EditorOnceTimeDocs::where('editor_id', request()->user()->id)->count(); @endphp
+                            <span class="badge bg-danger">{{ $x }}</span>
+                        </a>
+                    </li>
+
+                    <hr>
+                    <hr>
+                    <li class="nav-link">
                         <a href="{{ route('editor-approval-history') }}">
-                            <i class='bx bx-vertical-center icon'></i>
                             <span class="text nav-text">Editor History</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{ route('editor-approval-history-files') }}">
-                            <i class='bx bx-vertical-center icon'></i>
                             <span class="text nav-text">Disapproved Files</span>
                         </a>
                     </li>
@@ -164,7 +159,6 @@
                     {{--   Viewer  --}}
                     <li class="nav-link">
                         <a href="{{ route('get-all-customers') }}">
-                            <i class="bx bx-bar-chart-alt-2 icon"></i>
                             <span class="text nav-text">SAP Table</span>
                         </a>
                     </li>

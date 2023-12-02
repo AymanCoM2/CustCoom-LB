@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DocumentsController;
+use App\Models\EditorOnceTimeDocs;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImportingController;
 use App\Http\Controllers\LocalStorageController;
@@ -45,6 +46,14 @@ Route::get('/disapprove-pdf-file/{pdf}', function (Request $request) {
     $disapprovedFile->filePathName = $disApprovedDoc->path;
     $disapprovedFile->save();
     $disApprovedDoc->forceDelete();
+
+    $notifyDoc  = new EditorOnceTimeDocs() ; 
+    $notifyDoc->editor_id = $disapprovedFile->uploader_id ; 
+    $notifyDoc->file_name = $disapprovedFile->filePathName; 
+    $notifyDoc->save() ; /// Here you Saved it For an Editor to notify Him 
+    // THEN delete Data about it  ; 
+
+
     Toastr::info('File is Dis-Approved');
     return back();
 })->name('disapprove-pdf');

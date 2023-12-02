@@ -30,7 +30,6 @@ class LocalStorageController extends Controller
             // Remove dashes, spaces, and plus signs
             $fileName = str_replace(["-", "+", "@", "#", "$", "%", "^", "&", "*"], "", $fileName);
             // Remove all non-alphanumeric characters
-            // $fileName = preg_replace("/[^a-zA-Z0-9]/", "", $fileName);
             $mimeParts  = explode('/', $aPdfFile->getMimeType());
             $realExtension  = end($mimeParts);
             $newFileName  = time() . '--' . $fileName; // With timestamp
@@ -54,7 +53,6 @@ class LocalStorageController extends Controller
     {
         $selectedCustomer   = Customers::where('CardCode', $cardCode)->first();
         $customerId  = $selectedCustomer->id;
-
         $arcihedFiles =   Documents::onlyTrashed()
             ->where('customer_id', $customerId)
             ->get();

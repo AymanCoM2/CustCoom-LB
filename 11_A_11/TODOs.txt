@@ -1,8 +1,9 @@
-Google Drive Links For Customers 
-------------------------------
-Excel Backup/Export excel Mysql + sap + Calculated in Sheets/DB backups 
-===============================
 Notification + Messages Models For the Editors ? / Admins Maybe also ?
-------------------------------
+=====================
 Fixing the GROUP 3 Date Field 
-------------------------------
+Pivot Python On the Droplet 
+Delete The admin@admin From the Pivot 
+The Email Reset/Verify -> Email 
+Excel Backup/Export excel Mysql + sap + Calculated in Sheets/DB backups 
+Google Drive Links For Customers
+Put the Data in a Class "Like a Helper Class To be standalone For it";

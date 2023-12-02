@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customers;
 use App\Models\EditGrave;
 use App\Models\EditHistory;
+use App\Models\EditorOnceTimeNOtification;
 use App\Models\TempDisapprove;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,18 @@ class ApproveController extends Controller
         $editGrave->oldValue  = $tmpDisapprove->oldValue =  $approvedLog->oldValue;
         $editGrave->newValue  = $tmpDisapprove->newValue =  $approvedLog->newValue;
         $editGrave->save();
+        // Save in the Notification For the files ALso ....
+        // How to Handle it Being One Time ?? 
+        $notifyEditor  = new EditorOnceTimeNOtification();
+        $notifyEditor->editor_id  = $editGrave->editor_id;
+        $notifyEditor->field_name  = $approvedLog->fieldName;
+        $notifyEditor->field_old_value  = $approvedLog->oldValue;
+        $notifyEditor->field_new_value  = $approvedLog->newValue;
+        $notifyEditor->state  = false;  // !TODO Check the Approve_all Controller ?  
+        $notifyEditor->save();
+        // This is a Once Time Notification and Needs To be Deleted ;
+        // * DONE 
+
         $tmpDisapprove->save();
         $approvedLog->delete();
         return back()->with(['posY' => $verticalPosition]);
