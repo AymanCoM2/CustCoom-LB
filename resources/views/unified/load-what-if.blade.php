@@ -1,8 +1,7 @@
 <script>
-    // 1
+    // 1 , Just Show Toastr and Call the Function to Call the api 
     let userCardCode = $('#what_if_card_code').val();
     $('#load_what_if').on('click', function() {
-        // alert('Button is Clicked ' + userCardCode);
         Toastify({
             text: "Customer is Loaded :" + userCardCode,
             className: "info",
@@ -13,7 +12,7 @@
         loadDataFromLink(userCardCode);
     });
 
-    // 2 
+    // 2 ,  Make the Request and then Get the Data From the API 
     function loadDataFromLink(userCardCode) {
         $.ajax({
             type: 'GET',
@@ -24,6 +23,7 @@
             success: function(data) {
                 // console.log('Result  : ' + data.result);
                 fillTheForm(data.result);
+                // alert('Button is Clicked ' + userCardCode);
             },
             error: function(err) {
                 console.log('Error : ' + err);
@@ -37,7 +37,6 @@
         jsonDataObject.forEach(element => {
             // console.log(element.fieldName, element.newValue);
             let els = document.getElementsByName(element.fieldName);
-
             // if (els.length > 0) { // IT IS ALWAYS Bigger than 0 
             // Check the type of the first element in the collection (index 0)
             let el = els[0];
@@ -63,15 +62,14 @@
                 });
                 el.dispatchEvent(event);
             }
-            // }
         });
-        // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
+        // Those events Will not be dispached HERE BUT will be dispached Upon clicking alert 
         const radioButtons = document.querySelectorAll('input[type="radio"]');
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         const inputElements = document.querySelectorAll('input');
 
         [...radioButtons, ...checkboxes, ...inputElements].forEach(function(element) {
-            element.dispatchEvent(customEvent);
+            element.dispatchEvent(change);
         });
         // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
     } // End Of fillTheForm
