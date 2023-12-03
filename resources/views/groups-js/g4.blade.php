@@ -8,7 +8,6 @@
         if (selectedValue == 'موجود') {
             markRequired();
             $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
-            // HERE 
             let creditSapValue = Number($('p[name="CreditLine_p"]').text());
             let mazValue = Number($('p[name="mazbota"]').text());
             if (Number(mazValue) == creditSapValue) {

@@ -8,9 +8,7 @@
             } else {
                 calcElement_1.text('يجب اعادة طلبه');
             }
-        } else {
-            // console.log("Radio button unchecked.");
-        }
+        } else {}
     });
 
     $(':input[name="CommercialRegister"]').on("myCustomEvent change", function() {
@@ -42,9 +40,7 @@
             } else {
                 $('p[name="Rttv_dt_e"]').text('يجب اعادة طلبه');
             }
-        } else {
-            // console.log("Radio button unchecked.");
-        }
+        } else {}
     });
 
     $(':input[name="CRExpiryDate"]').on("myCustomEvent change", function() {
@@ -66,7 +62,6 @@
     function theMixFormulaG2_1() {
         let fixedPeriod = 1;
         let date_2_22 = $(':input[name="CRExpiryDate"]').val();
-        // console.log('Gorgy Now  : ', date_2_22);
         var check_2_1 = $('input[name="CommercialRegister"]:checked').val();
         var check_2_2 = $('input[name="CrCnMatch"]:checked').val();
         var todayExtraFixed = new Date();

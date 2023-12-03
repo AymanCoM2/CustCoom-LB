@@ -66,7 +66,6 @@
         }
     });
 
-    // DATE input 
     $(':input[name="ExpiryDateGuarantorPromissoryNote"]').on("myCustomEvent change", function() {
         secondCouple();
     });

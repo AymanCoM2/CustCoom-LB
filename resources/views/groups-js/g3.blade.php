@@ -13,7 +13,6 @@
         }
     });
 
-    // DATE input 
     $(':input[name="ExpirydateCommlicense"]').on("myCustomEvent change", function() {
         var ExpirydateCommlicense = $(this).val();
         theMixFormulaG3_1()

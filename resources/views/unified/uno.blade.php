@@ -45,13 +45,6 @@
         let mazValue = 0;
         var selectedValue = $(':input[name="OrderBond"]:checked').val();
         if (selectedValue == 'موجود') {
-            // if ($('#COM').text() == 'LB') {
-            //     $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
-            //     mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / 2);
-            // } else {
-            //     $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) * 0.8);
-            //     mazValue = Number(Number($(':input[name="ValueOrderException"]').val())  * 0.8);
-            // }
             $('p[name="mazbota"]').text(Number($(':input[name="ValueOrderException"]').val()) / 2);
             mazValue = Number(Number($(':input[name="ValueOrderException"]').val()) / 2);
 
@@ -62,7 +55,6 @@
             mazValue = 0;
             $('p[name="mazbota"]').text('0');
         }
-
         let creditSapValue = Number($('p[name="CreditLine_p"]').text());
         if (mazValue == creditSapValue) {
             $('p[name="motabaqa"]').text('مطابق');

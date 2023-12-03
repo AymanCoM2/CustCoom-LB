@@ -36,34 +36,11 @@
                     <span class="text-danger">NOT CASH BASIC </span>
                 @endif
             </label>
-            @php
-                if (Auth::user()->isSuperUser == 1):
-                    foreach ($r as $singleEditArray):
-                        if ($singleEditArray['fieldName'] == 'CustomerType'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
-                            $fullData = $data . $data2;
-                            echo "<a class=\"al\" href=''
-                                           onclick=\"event.preventDefault();
-                                                         document.getElementById('approval').setAttribute('value'" .
-                                ',' .
-                                $singleEditArray['id'] .
-                                ");
-                                                         document.getElementById('logout-form').submit();\">";
-                            echo 'Dis-Approve';
-                            echo '</a>';
-                            echo "
-                                                <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" data-bs-html='true' >
-                                            <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
-                                                type='button' disabled><i class='bx bx-question-mark'></i></button>
-                                        </span>
-                                    </div>
-                                    ";
-                        endif;
-                    endforeach;
-                endif;
 
+            @if (Auth::user()->isSuperUser == 1)
+                @include('single.q-mark', ['r' => $r, 'fdname' => 'CustomerType'])
+            @endif
+            @php
                 if (in_array('CustomerType', $allDDLColumn)):
                     echo '<div class="form-check
                     endif; form-check-inline">';
@@ -100,35 +77,10 @@
             class="col-sm-6 {{ $errors->has('CustomerName') && old('CommercialRegister') == 'موجود' ? 'border border-danger' : '' }}">
             <label for="" class="form-input-label bg-light  w-100 fw-bold"> {{ __('CustomerName', [], 'ar') }}
             </label>
+            @if (Auth::user()->isSuperUser == 1)
+                @include('single.q-mark', ['r' => $r, 'fdname' => 'CustomerName'])
+            @endif
             @php
-                if (Auth::user()->isSuperUser == 1):
-                    foreach ($r as $singleEditArray):
-                        if ($singleEditArray['fieldName'] == 'CustomerName'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
-                            $fullData = $data . $data2;
-                            // dd($fullData)  ;
-
-                            echo "<a class=\"al\" href=''
-                                           onclick=\"event.preventDefault();
-                                                         document.getElementById('approval').setAttribute('value'" .
-                                ',' .
-                                $singleEditArray['id'] .
-                                ");
-                                                         document.getElementById('logout-form').submit();\">";
-                            echo 'Dis-Approve';
-                            echo '</a>';
-                            echo "
-                                                <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" data-bs-html='true' >
-                                            <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
-                                                type='button' disabled><i class='bx bx-question-mark'></i></button>
-                                        </span>
-                                    </div>
-                                    ";
-                        endif;
-                    endforeach;
-                endif;
                 if (in_array('CustomerName', $allDDLColumn)):
                     echo '<div class="form-check form-check-inline">';
                     $allOptions = App\Models\ColumnOption::where('colName', 'CustomerName')->get();
@@ -156,35 +108,10 @@
             <label for="" class="form-input-label bg-light  w-100 fw-bold">
                 {{ __('OrgLegalStatue', [], 'ar') }}
             </label>
+            @if (Auth::user()->isSuperUser == 1)
+                @include('single.q-mark', ['r' => $r, 'fdname' => 'OrgLegalStatue'])
+            @endif
             @php
-                if (Auth::user()->isSuperUser == 1):
-                    foreach ($r as $singleEditArray):
-                        if ($singleEditArray['fieldName'] == 'OrgLegalStatue'):
-                            $data = 'Old Value : ' . $singleEditArray['oldValue'] . '<br>New Value:' . $singleEditArray['newValue'];
-                            $data2 = '<br>Editor Name:' . App\Models\User::find($singleEditArray)->first()->name;
-                            $fullData = $data . $data2;
-                            // dd($fullData)  ;
-
-                            echo "<a class=\"al\" href=''
-                                           onclick=\"event.preventDefault();
-                                                         document.getElementById('approval').setAttribute('value'" .
-                                ',' .
-                                $singleEditArray['id'] .
-                                ");
-                                                         document.getElementById('logout-form').submit();\">";
-                            echo 'Dis-Approve';
-                            echo '</a>';
-                            echo "
-                                                <div class='col-6'><span class='d-inline-block' tabindex='0' data-toggle='tooltip'
-                                            title=\"$fullData\" data-bs-html='true' >
-                                            <button class='btn btn-danger w-50 p-0 m-2' style='pointer-events: none;'
-                                                type='button' disabled><i class='bx bx-question-mark'></i></button>
-                                        </span>
-                                    </div>
-                                    ";
-                        endif;
-                    endforeach;
-                endif;
                 if (in_array('OrgLegalStatue', $allDDLColumn)):
                     echo '<div class="form-check form-check-inline">';
                     $allOptions = App\Models\ColumnOption::where('colName', 'OrgLegalStatue')->get();

@@ -10,7 +10,6 @@
                 calcElement_1.text('يجب اعادة طلبه');
             }
         } else {
-            // console.log("Radio button unchecked.");
         }
     });
 

@@ -38,6 +38,7 @@
     $(':input[name="ExpiryDateNationalAddress"]').on("myCustomEvent change", function() {
         firstCombination();
     });
+
     $(':input[name="ExpiryDateNationalAddress_h"]').on("myCustomEvent blur", function() {
         setTimeout(function() {
             firstCombination();

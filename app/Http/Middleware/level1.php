@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class level1
 {
-
     public function handle(Request $request, Closure $next)
     {
         if ($request->user()->isSuperUser == 1) {
@@ -17,5 +16,4 @@ class level1
             return redirect('login');
         }
     }
-    
 }

@@ -16,6 +16,4 @@ class level2
             return redirect('login');
         }
     }
-    
-   
 }

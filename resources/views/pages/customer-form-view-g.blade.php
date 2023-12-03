@@ -164,7 +164,6 @@
             console.log($('#scrollY').val());
             $(window).scrollTop($('#scrollY').val());
 
-
             $('#groupFormUpdate').submit(function(e) {
                 $('#groupFormUpdate').addClass('d-none');
                 $('#central').removeClass('d-none');
@@ -181,13 +180,10 @@
 
             $('.al').click(function(e) {
                 console.log('FFFFFF');
-                // alert('vv');
                 $('#groupFormUpdate').addClass('d-none');
                 $('#central').removeClass('d-none');
                 $('#loadingSpinner').removeClass('d-none');
             });
-            // var desiredScrollValue = $('#scrollY').val(scrollYValue);
-            // $(window).scrollTop(desiredScrollValue);
             $(window).on('scroll', function() {
                 var scrollYValue = $(window).scrollTop();
                 $('#scrollY').val(scrollYValue);
@@ -219,7 +215,6 @@
                     $('.sanad-g').find('input, [type=date], textarea').prop('disabled', false);
                 }
             });
-            // Above is the First One  >> نقدى
 
             $(':input[name="OrderBond"]').change(function() {
                 if ($(this).val() == 'غير موجود' && $(this).is(':checked')) {
@@ -234,8 +229,6 @@
                 }
             });
 
-            // Above is the Second  One 
-
             $(':input[name="CommercialRegister"]').change(function() {
                 if ($(this).val() == 'غير موجود' && $(this).is(':checked')) {
                     $('.mixsanseg').find('input, [type=date], textarea').prop('disabled', true);
@@ -248,459 +241,98 @@
                     if ($(':input[name="OrderBond"]').val() == 'موجود' || $(':input[name="OrderBond"]')
                         .val() == 'مستثنى') {
                         $('.mixsanseg').find('input, [type=date], textarea').prop('disabled', false);
-                        // $('.mixsanseg').find('input[type=radio]').prop('checked', false);
                     }
-
                 } else if ($(this).val() != '' && $(this).is(':checked')) {
                     $('.sejel').find('input, [type=date], textarea').prop('disabled', false);
-                    // $('.mixsanseg').find('input, [type=date], textarea').prop('disabled', false);
                 }
             });
 
+            // ! This is Code For Converting Dates While the User Is Typing them 
+            function twoDatesConverter(gregoryDateObject, hijriDateObject) {
+                gregoryDateObject.addEventListener("change", function() {
+                    const selectedDate = gregoryDateObject.value;
+                    if (selectedDate) {
+                        // console.log(selectedDate);
+                        const dateParts = selectedDate.split("-");
+                        const year = dateParts[0];
+                        const month = dateParts[1];
+                        const day = dateParts[2];
+                        const forma = `${day}-${month}-${year}`;
+                        // console.log(forma);
+                        const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
+                        // Make an API call using AJAX
+                        fetch(apiEndpoint)
+                            .then(response => response.json())
+                            .then(data => {
+                                const convertedDate = data.data.hijri.date;
+                                hijriDateObject.value = convertedDate;
+                            })
+                            .catch(error => {
+                                console.error("Error fetching API data:", error);
+                            });
+                    } else {
+                        hijriDateObject.value = ""; // Reset the value if the date is cleared
+                    }
+                });
 
-            // Above is the Third  One 
+                hijriDateObject.addEventListener("change", function() {
+                    const selectedDate = hijriDateObject.value;
+                    if (selectedDate) {
+                        // console.log(selectedDate);
+                        const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
+                        // Make an API call using AJAX
+                        fetch(apiEndpoint)
+                            .then(response => response.json())
+                            .then(data => {
+                                const convertedDate = data.data.gregorian.date;
+                                const dateParts = convertedDate.split("-");
+                                const year = dateParts[0];
+                                const month = dateParts[1];
+                                const day = dateParts[2];
+                                const forma = `${day}-${month}-${year}`;
+                                // console.log(forma);
+                                gregoryDateObject.value = forma;
+                            })
+                            .catch(error => {
+                                console.error("Error fetching API data:", error);
+                            });
+                    } else {
+                        hijriDateObject.value = ""; // Reset the value if the date is cleared
+                    }
+                });
+            }
             const CRExpiryDateInput = document.getElementsByName("CRExpiryDate")[0];
             const CRExpiryDate_hInput = document.getElementsByName("CRExpiryDate_h")[0];
+            twoDatesConverter(CRExpiryDateInput, CRExpiryDate_hInput);
             const ExpirydateCommlicense = document.getElementsByName("ExpirydateCommlicense")[0];
             const ExpirydateCommlicense_h = document.getElementsByName("ExpirydateCommlicense_h")[0];
+            twoDatesConverter(ExpirydateCommlicense, ExpirydateCommlicense_h);
             const CreationDateOrderOrException = document.getElementsByName("CreationDateOrderOrException")[0];
             const CreationDateOrderOrException_h = document.getElementsByName("CreationDateOrderOrException_h")[0];
+            twoDatesConverter(CreationDateOrderOrException, CreationDateOrderOrException_h);
             const OwnerIDExpiryDate = document.getElementsByName("OwnerIDExpiryDate")[0];
             const OwnerIDExpiryDate_h = document.getElementsByName("OwnerIDExpiryDate_h")[0];
+            twoDatesConverter(OwnerIDExpiryDate, OwnerIDExpiryDate_h);
             const ExpiryDateGuarantorPromissoryNote = document.getElementsByName(
                 "ExpiryDateGuarantorPromissoryNote")[0];
             const ExpiryDateGuarantorPromissoryNote_h = document.getElementsByName(
                 "ExpiryDateGuarantorPromissoryNote_h")[0];
+            twoDatesConverter(ExpiryDateGuarantorPromissoryNote, ExpiryDateGuarantorPromissoryNote_h);
             const ExpirationDateFirstWitness = document.getElementsByName("ExpirationDateFirstWitness")[0];
             const ExpirationDateFirstWitness_h = document.getElementsByName("ExpirationDateFirstWitness_h")[0];
+            twoDatesConverter(ExpirationDateFirstWitness, ExpirationDateFirstWitness_h);
             const ExpiryDateSecondWitness = document.getElementsByName("ExpiryDateSecondWitness")[0];
             const ExpiryDateSecondWitness_h = document.getElementsByName("ExpiryDateSecondWitness_h")[0];
+            twoDatesConverter(ExpiryDateSecondWitness, ExpiryDateSecondWitness_h);
             const ExpiryDateNationalAddressReserveGuarantor = document.getElementsByName(
                 "ExpiryDateNationalAddressReserveGuarantor")[0];
             const ExpiryDateNationalAddressReserveGuarantor_h = document.getElementsByName(
                 "ExpiryDateNationalAddressReserveGuarantor_h")[0];
+            twoDatesConverter(ExpiryDateNationalAddressReserveGuarantor,
+                ExpiryDateNationalAddressReserveGuarantor_h);
             const ExpiryDateNationalAddress = document.getElementsByName("ExpiryDateNationalAddress")[0];
             const ExpiryDateNationalAddress_h = document.getElementsByName("ExpiryDateNationalAddress_h")[0];
-
-            CRExpiryDateInput.addEventListener("change", function() {
-                const selectedDate = CRExpiryDateInput.value;
-                if (selectedDate) {
-                    // console.log(selectedDate);
-                    const dateParts = selectedDate.split("-");
-                    const year = dateParts[0];
-                    const month = dateParts[1];
-                    const day = dateParts[2];
-                    const forma = `${day}-${month}-${year}`;
-                    // console.log(forma);
-                    const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
-                    // Make an API call using AJAX
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.hijri.date;
-                            CRExpiryDate_hInput.value = convertedDate;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    CRExpiryDate_hInput.value = ""; // Reset the value if the date is cleared
-                }
-            });
-
-            CRExpiryDate_hInput.addEventListener("change", function() {
-                const selectedDate = CRExpiryDate_hInput.value;
-                if (selectedDate) {
-                    // console.log(selectedDate);
-                    const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
-                    // Make an API call using AJAX
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.gregorian.date;
-                            const dateParts = convertedDate.split("-");
-                            const year = dateParts[0];
-                            const month = dateParts[1];
-                            const day = dateParts[2];
-                            const forma = `${day}-${month}-${year}`;
-                            // console.log(forma);
-                            CRExpiryDateInput.value = forma;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    CRExpiryDate_hInput.value = ""; // Reset the value if the date is cleared
-                }
-            });
-
-
-            ExpirydateCommlicense.addEventListener("change", function() {
-                const selectedDate = ExpirydateCommlicense.value;
-                if (selectedDate) {
-                    const dateParts = selectedDate.split("-");
-                    const year = dateParts[0];
-                    const month = dateParts[1];
-                    const day = dateParts[2];
-                    const forma = `${day}-${month}-${year}`;
-                    const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.hijri.date;
-                            ExpirydateCommlicense_h.value = convertedDate;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpirydateCommlicense_h.value = "";
-                }
-            });
-
-            ExpirydateCommlicense_h.addEventListener("change", function() {
-                const selectedDate = ExpirydateCommlicense_h.value;
-                if (selectedDate) {
-                    const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.gregorian.date;
-                            const dateParts = convertedDate.split("-");
-                            const year = dateParts[0];
-                            const month = dateParts[1];
-                            const day = dateParts[2];
-                            const forma = `${day}-${month}-${year}`;
-                            ExpirydateCommlicense.value = forma;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpirydateCommlicense_h.value = "";
-                }
-            });
-
-            CreationDateOrderOrException.addEventListener("change", function() {
-                const selectedDate = CreationDateOrderOrException.value;
-                if (selectedDate) {
-                    const dateParts = selectedDate.split("-");
-                    const year = dateParts[0];
-                    const month = dateParts[1];
-                    const day = dateParts[2];
-                    const forma = `${day}-${month}-${year}`;
-                    const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.hijri.date;
-                            CreationDateOrderOrException_h.value = convertedDate;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    CreationDateOrderOrException_h.value = "";
-                }
-            });
-
-            CreationDateOrderOrException_h.addEventListener("change", function() {
-                const selectedDate = CreationDateOrderOrException_h.value;
-                if (selectedDate) {
-                    const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.gregorian.date;
-                            const dateParts = convertedDate.split("-");
-                            const year = dateParts[0];
-                            const month = dateParts[1];
-                            const day = dateParts[2];
-                            const forma = `${day}-${month}-${year}`;
-                            CreationDateOrderOrException.value = forma;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    CreationDateOrderOrException_h.value = "";
-                }
-            });
-
-            OwnerIDExpiryDate.addEventListener("change", function() {
-                const selectedDate = OwnerIDExpiryDate.value;
-                if (selectedDate) {
-                    const dateParts = selectedDate.split("-");
-                    const year = dateParts[0];
-                    const month = dateParts[1];
-                    const day = dateParts[2];
-                    const forma = `${day}-${month}-${year}`;
-                    const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.hijri.date;
-                            OwnerIDExpiryDate_h.value = convertedDate;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    OwnerIDExpiryDate_h.value = "";
-                }
-            });
-
-            OwnerIDExpiryDate_h.addEventListener("change", function() {
-                const selectedDate = OwnerIDExpiryDate_h.value;
-                if (selectedDate) {
-                    const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.gregorian.date;
-                            const dateParts = convertedDate.split("-");
-                            const year = dateParts[0];
-                            const month = dateParts[1];
-                            const day = dateParts[2];
-                            const forma = `${day}-${month}-${year}`;
-                            OwnerIDExpiryDate.value = forma;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    OwnerIDExpiryDate_h.value = "";
-                }
-            });
-
-            ExpiryDateGuarantorPromissoryNote.addEventListener("change", function() {
-                const selectedDate = ExpiryDateGuarantorPromissoryNote.value;
-                if (selectedDate) {
-                    const dateParts = selectedDate.split("-");
-                    const year = dateParts[0];
-                    const month = dateParts[1];
-                    const day = dateParts[2];
-                    const forma = `${day}-${month}-${year}`;
-                    const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.hijri.date;
-                            ExpiryDateGuarantorPromissoryNote_h.value = convertedDate;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpiryDateGuarantorPromissoryNote_h.value = "";
-                }
-            });
-
-            ExpiryDateGuarantorPromissoryNote_h.addEventListener("change", function() {
-                const selectedDate = ExpiryDateGuarantorPromissoryNote_h.value;
-                if (selectedDate) {
-                    const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.gregorian.date;
-                            const dateParts = convertedDate.split("-");
-                            const year = dateParts[0];
-                            const month = dateParts[1];
-                            const day = dateParts[2];
-                            const forma = `${day}-${month}-${year}`;
-                            ExpiryDateGuarantorPromissoryNote.value = forma;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpiryDateGuarantorPromissoryNote_h.value = "";
-                }
-            });
-
-            ExpirationDateFirstWitness.addEventListener("change", function() {
-                const selectedDate = ExpirationDateFirstWitness.value;
-                if (selectedDate) {
-                    const dateParts = selectedDate.split("-");
-                    const year = dateParts[0];
-                    const month = dateParts[1];
-                    const day = dateParts[2];
-                    const forma = `${day}-${month}-${year}`;
-                    const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.hijri.date;
-                            ExpirationDateFirstWitness_h.value = convertedDate;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpirationDateFirstWitness_h.value = "";
-                }
-            });
-
-            ExpirationDateFirstWitness_h.addEventListener("change", function() {
-                const selectedDate = ExpirationDateFirstWitness_h.value;
-                if (selectedDate) {
-                    const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.gregorian.date;
-                            const dateParts = convertedDate.split("-");
-                            const year = dateParts[0];
-                            const month = dateParts[1];
-                            const day = dateParts[2];
-                            const forma = `${day}-${month}-${year}`;
-                            ExpirationDateFirstWitness.value = forma;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpirationDateFirstWitness_h.value = "";
-                }
-            });
-
-            ExpiryDateSecondWitness.addEventListener("change", function() {
-                const selectedDate = ExpiryDateSecondWitness.value;
-                if (selectedDate) {
-                    const dateParts = selectedDate.split("-");
-                    const year = dateParts[0];
-                    const month = dateParts[1];
-                    const day = dateParts[2];
-                    const forma = `${day}-${month}-${year}`;
-                    const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.hijri.date;
-                            ExpiryDateSecondWitness_h.value = convertedDate;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpiryDateSecondWitness_h.value = "";
-                }
-            });
-
-            ExpiryDateSecondWitness_h.addEventListener("change", function() {
-                const selectedDate = ExpiryDateSecondWitness_h.value;
-                if (selectedDate) {
-                    const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.gregorian.date;
-                            const dateParts = convertedDate.split("-");
-                            const year = dateParts[0];
-                            const month = dateParts[1];
-                            const day = dateParts[2];
-                            const forma = `${day}-${month}-${year}`;
-                            ExpiryDateSecondWitness.value = forma;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpiryDateSecondWitness_h.value = "";
-                }
-            });
-            ExpiryDateNationalAddressReserveGuarantor.addEventListener("change", function() {
-                const selectedDate = ExpiryDateNationalAddressReserveGuarantor.value;
-                if (selectedDate) {
-                    const dateParts = selectedDate.split("-");
-                    const year = dateParts[0];
-                    const month = dateParts[1];
-                    const day = dateParts[2];
-                    const forma = `${day}-${month}-${year}`;
-                    const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.hijri.date;
-                            ExpiryDateNationalAddressReserveGuarantor_h.value = convertedDate;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpiryDateNationalAddressReserveGuarantor_h.value = "";
-                }
-            });
-
-            ExpiryDateNationalAddressReserveGuarantor_h.addEventListener("change", function() {
-                const selectedDate = ExpiryDateNationalAddressReserveGuarantor_h.value;
-                if (selectedDate) {
-                    const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.gregorian.date;
-                            const dateParts = convertedDate.split("-");
-                            const year = dateParts[0];
-                            const month = dateParts[1];
-                            const day = dateParts[2];
-                            const forma = `${day}-${month}-${year}`;
-                            ExpiryDateNationalAddressReserveGuarantor.value = forma;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpiryDateNationalAddressReserveGuarantor_h.value = "";
-                }
-            });
-
-            ExpiryDateNationalAddress.addEventListener("change", function() {
-                const selectedDate = ExpiryDateNationalAddress.value;
-                if (selectedDate) {
-                    const dateParts = selectedDate.split("-");
-                    const year = dateParts[0];
-                    const month = dateParts[1];
-                    const day = dateParts[2];
-                    const forma = `${day}-${month}-${year}`;
-                    const apiEndpoint = `http://api.aladhan.com/v1/gToH/${forma}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.hijri.date;
-                            ExpiryDateNationalAddress_h.value = convertedDate;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpiryDateNationalAddress_h.value = "";
-                }
-            });
-
-            ExpiryDateNationalAddress_h.addEventListener("change", function() {
-                const selectedDate = ExpiryDateNationalAddress_h.value;
-                if (selectedDate) {
-                    const apiEndpoint = `http://api.aladhan.com/v1/hToG/${selectedDate}`;
-                    fetch(apiEndpoint)
-                        .then(response => response.json())
-                        .then(data => {
-                            const convertedDate = data.data.gregorian.date;
-                            const dateParts = convertedDate.split("-");
-                            const year = dateParts[0];
-                            const month = dateParts[1];
-                            const day = dateParts[2];
-                            const forma = `${day}-${month}-${year}`;
-                            ExpiryDateNationalAddress.value = forma;
-                        })
-                        .catch(error => {
-                            console.error("Error fetching API data:", error);
-                        });
-                } else {
-                    ExpiryDateNationalAddress_h.value = "";
-                }
-            });
+            twoDatesConverter(ExpiryDateNationalAddress, ExpiryDateNationalAddress_h);
         });
     </script>
 

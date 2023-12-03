@@ -25,7 +25,6 @@ class DocumentsController extends Controller
         return view('pages.local-google-drive', compact(['customerDocs', 'cardCode']));
     }
 
-
     public function standAloneLocalGoogleDrive($cardCode)
     {
         $customer = Customers::where('CardCode', $cardCode)->first();
