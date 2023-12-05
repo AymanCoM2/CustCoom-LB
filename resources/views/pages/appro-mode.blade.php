@@ -1,7 +1,4 @@
 @php
-    // if ($posY != 0) {
-    //     dd($posY);
-    // }
     $oneDay = 60 * 60 * 24;
     $oneYear = 365 * $oneDay;
     $today = date('Y-m-d ');
@@ -14,7 +11,6 @@
         ->get()
         ->makeHidden(['created_at', 'updated_at'])
         ->toArray();
-    // dd(App\Models\User::find($r[0])->first()->name);
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -52,22 +48,12 @@
         @endif
 
         @if ((bool) $r)
-            <h3>Check Profile [If Approved] :</h3>
-
-            <a class="btn rounded-pill p-1 btn-info" href="{{ route('get-customer-form-g-what-if', $cardCode) }}"
-                id="iframeLink">Check Link(Right
-                Side)</a>
-            <a class="btn rounded-pill p-1 btn-warning" href="{{ route('customer-drive', $cardCode) }}"
-                id="iframeLink3">Check
-                Docs(Same page)</a>
-
-            <a class="btn rounded-pill p-1 btn-primary" href="{{ route('appro-mode', $cardCode) }}"
-                id="iframeLink">Appro-Mode</a>
+            <a class="btn rounded-pill p-1 btn-info" href="{{ route('get-customer-form-g', $cardCode) }}"
+                id="iframeLink3">⬅ ⬅Return Back</a>
             {{--  --}}
-            {{--  --}}
-            <button id="load_what_if" class="">Load Data Of What-If Into Form</button>
+            <button id="load_what_if" style="display: none;">Load Data Of What-If Into Form</button>
+            {{-- Hide BUtton And Upon Loading the Page Click it  --}}
             <input type="hidden" id="what_if_card_code" value="{{ $cardCode }}">
-            {{--  --}}
             {{--  --}}
         @endif
     @endif
@@ -92,8 +78,6 @@
         <input type="hidden" name="CardCode" value="{{ $customerSapData['CardCode'] }}">
         <input type="hidden" name="created_at" value="">
         <input type="hidden" name="updated_at" value="">
-
-
 
         @include('layouts.sep', ['variableName' => 'مجموعة - 1'])
         @include('groups.group-1')
@@ -122,13 +106,8 @@
                 @else
                     <input type="submit" name="submit" id="" value="Submit"
                         class="form-group btn btn-danger">
+                    {{-- Write Here that there is Nothing More to TO !!! --}}
                 @endif
-            </div>
-        @endif
-
-        @if (Auth::user()->isSuperUser == 2)
-            <div class="d-flex justify-content-center">
-                <input type="submit" name="submit" id="" value="Submit" class="form-group btn btn-danger">
             </div>
         @endif
         <br>
@@ -141,24 +120,7 @@
 
     <script src="{{ asset('js/code.jquery.com_jquery-3.7.0.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-    <script>
-        // ! New Custom Event to do here  
-        // const customEvent = new CustomEvent('myCustomEvent', {
-        //     detail: {
-        //         someData: 'Hello, custom event!'
-        //     }
-        // });
 
-        // // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
-        // const radioButtons = document.querySelectorAll('input[type="radio"]');
-        // const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        // const inputElements = document.querySelectorAll('input');
-
-        // [...radioButtons, ...checkboxes, ...inputElements].forEach(function(element) {
-        //     element.dispatchEvent(customEvent);
-        // });
-        // // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
-    </script>
     <script>
         $(document).ready(function() {
             console.log($('#scrollY').val());
@@ -179,7 +141,6 @@
 
             $('.al').click(function(e) {
                 console.log('FFFFFF');
-                // alert('vv');
                 $('#groupFormUpdate').addClass('d-none');
                 $('#central').removeClass('d-none');
                 $('#loadingSpinner').removeClass('d-none');
@@ -392,14 +353,16 @@
 
     @include('unified.uno')
     {{-- @include('unified.HijriLoad') --}}
-    @if (Auth::user()->isSuperUser == 3)
-        @include('unified.viewer-js')
-    @endif
-
-    {{-- // TODO Only if the User Is Editor Or admin  --}}
-    @if (Auth::user()->isSuperUser == 1 || Auth::user()->isSuperUser == 2)
-        @include('unified.load-what-if')
-    @endif
+    @include('unified.load-what-if')
+    {{-- Here Click On the Button Of approval --}}
+    <script>
+        window.onload = function() {
+            var button = document.getElementById('load_what_if');
+            if (button) {
+                button.click();
+            }
+        };
+    </script>
     <script src="{{ asset('js/toastify-js.js') }}"></script>
 </body>
 

@@ -203,6 +203,21 @@ class CustomersController extends Controller
         return view('pages.customer-form-view-g', compact(['customerSapData', 'customerMySqlData', 'cardCode', 'posY']));
     }
 
+    public function showCustomerDataFormGApproMode($cardCode)
+    {
+        $posY = 0;
+        $customerSapData  = (array) self::getSingleCustomerData($cardCode);
+        $customerMySqlData  = Customers::where('CardCode', $cardCode)->first();
+        if (!$customerMySqlData) {
+            $newMySqlCustomer  = new Customers();
+            $newMySqlCustomer->CardCode = $cardCode;
+            $newMySqlCustomer->save();
+            $customerMySqlData = $newMySqlCustomer;
+            session()->flash('init', 'This User Record is Initiated For the First Time , All Data Are From Sap Only');
+        }
+        return view('pages.appro-mode', compact(['customerSapData', 'customerMySqlData', 'cardCode', 'posY']));
+    }
+
     public function showCustomerDataFormGWhatIf($cardCode)
     {
         $customerSapData  = self::getSingleCustomerData($cardCode);
