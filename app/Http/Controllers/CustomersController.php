@@ -8,7 +8,6 @@ use App\Models\ComLog;
 use App\Models\Customers;
 use App\Models\EditHistory;
 use App\Models\TempDisapprove;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDO;
@@ -187,7 +186,6 @@ class CustomersController extends Controller
         return view('pages.customer-form-view', compact(['customerSapData', 'customerMySqlData', 'cardCode']));
     }
 
-
     public function showCustomerDataFormG($cardCode)
     {
         $posY = 0;
@@ -231,7 +229,6 @@ class CustomersController extends Controller
         }
         return view('pages.what-if-form', compact(['customerSapData', 'customerMySqlData', 'cardCode']));
     }
-
 
     public function showCustomerDataFrameDrive($cardCode)
     {

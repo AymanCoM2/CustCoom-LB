@@ -14,6 +14,7 @@ class DocumentsController extends Controller
         $deletedDocument->delete();
         return back();
     }
+
     public function localGoogleDrive($cardCode)
     {
         $customer = Customers::where('CardCode', $cardCode)->first();
