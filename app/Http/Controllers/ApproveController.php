@@ -15,9 +15,9 @@ class ApproveController extends Controller
     {
         // approveField() is Now for Disapproval NOT for Approval 
         $verticalPosition  = $request->scrollY;
-        $tmpDisapprove  = new TempDisapprove();
-        $approvedLog  = EditHistory::where('id', $request->approveFieldId)->first();
-        $editGrave = new EditGrave();
+        $tmpDisapprove  = new TempDisapprove(); // For Show Button 
+        $approvedLog  = EditHistory::where('id', $request->approveFieldId)->first(); // To Load What if 
+        $editGrave = new EditGrave(); // TO Load History For the User 
         $editGrave->cardCode  = $tmpDisapprove->cardCode =  $approvedLog->cardCode;
         $editGrave->editor_id = $tmpDisapprove->editor_id =   $approvedLog->editor_id;
         $editGrave->fieldName = $tmpDisapprove->fieldName =   $approvedLog->fieldName;
@@ -35,7 +35,6 @@ class ApproveController extends Controller
         $notifyEditor->save();
         // This is a Once Time Notification and Needs To be Deleted ;
         // * DONE 
-
         $tmpDisapprove->save();
         $approvedLog->delete();
         return back()->with(['posY' => $verticalPosition]);
@@ -43,7 +42,7 @@ class ApproveController extends Controller
 
     public function approveAll(Request $request)
     {
-        $customerCodeAll   =  $request->allApproveCustomerCode;
+        $customerCodeAll = $request->allApproveCustomerCode;
         $customer    = Customers::where('CardCode', $customerCodeAll)->first();
         $allEdits  = EditHistory::where('cardCode', $customerCodeAll)->get();
         foreach ($allEdits as $edit) {
@@ -62,7 +61,7 @@ class ApproveController extends Controller
             $customer->save();
         }
 
-        if ($customer->OrderBond == "غير موجود" || $customer->OrderBond == null) {
+        if ($customer->OrderBond == "غير موجود" || $customer->OrderBond == null || $customer->CustomerType == "نقدى") {
             $customer->ValueOrderException = null;
             $customer->CreationDateOrderOrException = null;
             $customer->ObCrMatch = null;
@@ -70,7 +69,6 @@ class ApproveController extends Controller
             $customer->ObFrstSeeIdImg = null;
             $customer->ObScndSeeIdImg = null;
             $customer->NationalAddrFirstSupOb = null;
-
             $customer->ExpiryDateGuarantorPromissoryNote = null;
             $customer->ExpirationDateFirstWitness = null;
             $customer->ExpiryDateSecondWitness = null;
@@ -112,7 +110,9 @@ class ApproveController extends Controller
         }
 
         //--------------------------------
-
+        // Delete all From the Edits History That we Did Not Yet Delete Here ; 
+        // To start a New Edit History For the user  ;
+        EditHistory::where('CardCode', $customerCodeAll)->delete();
         return back();
     }
 }

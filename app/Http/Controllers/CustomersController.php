@@ -8,6 +8,7 @@ use App\Models\ComLog;
 use App\Models\Customers;
 use App\Models\EditHistory;
 use App\Models\TempDisapprove;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDO;
@@ -263,6 +264,10 @@ class CustomersController extends Controller
             $updatedCustomer->update($request->all()); // ^ This is the Update 
             $updatedCustomer->save();
             // Check Sanad and  Sejel 
+            // if ($request->CustomerType == "نقدى") {
+            //     $updatedCustomer->OrderBond = null;
+            //     $updatedCustomer->save();
+            // }
             if (!isset($request->CommercialRegister)) {
                 $updatedCustomer->CommercialRegister = null;
             }
@@ -283,7 +288,7 @@ class CustomersController extends Controller
             }
 
             // "OrderBond":"سند الامر",
-            if ($request->OrderBond == "غير موجود" ||  $request->OrderBond  == null) {
+            if ($request->OrderBond == "غير موجود" ||  $request->OrderBond  == null || $updatedCustomer->CustomerType == "نقدى") {
                 $updatedCustomer->ValueOrderException = null;
                 $updatedCustomer->CreationDateOrderOrException = null;
                 $updatedCustomer->ObCrMatch = null;
