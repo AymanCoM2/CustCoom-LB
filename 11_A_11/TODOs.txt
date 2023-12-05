@@ -7,8 +7,3 @@ You Will Need to Backup
 Check Everything is OK 
 Related Data ? What about them ? NAQDI 
 =======================
-Excel Backup/Export excel Mysql + sap + Calculated in Sheets/DB backups 
-Google Drive Links For Customers
-Put the Data in a Class "Like a Helper Class To be standalone For it";
-
-
