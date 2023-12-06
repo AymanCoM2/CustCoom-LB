@@ -263,18 +263,12 @@ class CustomersController extends Controller
             $updatedCustomer  = Customers::where('id', $request->id)->first();
             $updatedCustomer->update($request->all()); // ^ This is the Update 
             $updatedCustomer->save();
-            // Check Sanad and  Sejel 
-            // if ($request->CustomerType == "نقدى") {
-            //     $updatedCustomer->OrderBond = null;
-            //     $updatedCustomer->save();
-            // }
             if (!isset($request->CommercialRegister)) {
                 $updatedCustomer->CommercialRegister = null;
             }
             if (!isset($request->OrderBond)) {
                 $updatedCustomer->OrderBond = null;
             }
-
             if (!isset($request->CommLicense)) {
                 $updatedCustomer->CommLicense = null;
             }
@@ -286,7 +280,6 @@ class CustomersController extends Controller
                 $updatedCustomer->OrgLegalStatue = null;
                 $updatedCustomer->save();
             }
-
             // "OrderBond":"سند الامر",
             if ($request->OrderBond == "غير موجود" ||  $request->OrderBond  == null || $updatedCustomer->CustomerType == "نقدى") {
                 $updatedCustomer->ValueOrderException = null;
@@ -302,14 +295,13 @@ class CustomersController extends Controller
                 $updatedCustomer->ExpiryDateNationalAddressReserveGuarantor = null;
                 $updatedCustomer->save();
             }
-
             $updatedCustomer->save();
             return back();
         } else {
             $oldModelObject  = Customers::where('id', $request->id)->first(); // To compare each field 
             $filtered = array_filter($request->all());
             foreach ($oldModelObject->toArray() as $key => $value) {
-                if (isset($filtered[$key])) {
+                if (isset($filtered[$key]) && $key != 'id') {
                     if ($oldModelObject[$key] === $filtered[$key]) {
                     } else {
                         $editHistory  = EditHistory::where('cardCode', $oldModelObject['CardCode'])

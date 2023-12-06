@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('editor_once_time_n_otifications', function (Blueprint $table) {
-            //
+            $table->string('reason')->nullable();
         });
     }
 
