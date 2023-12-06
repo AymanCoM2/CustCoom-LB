@@ -1,7 +1,4 @@
 @php
-    // if ($posY != 0) {
-    //     dd($posY);
-    // }
     $oneDay = 60 * 60 * 24;
     $oneYear = 365 * $oneDay;
     $today = date('Y-m-d ');
@@ -14,7 +11,6 @@
         ->get()
         ->makeHidden(['created_at', 'updated_at'])
         ->toArray();
-    // dd(App\Models\User::find($r[0])->first()->name);
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -53,27 +49,26 @@
 
         @if ((bool) $r)
             <h3>Check Profile [If Approved] :</h3>
-
             <a class="btn rounded-pill p-1 btn-info" href="{{ route('get-customer-form-g-what-if', $cardCode) }}"
-                id="iframeLink">Check Link(Right
-                Side)</a>
+                id="iframeLink">
+                Check Link(RightSide)
+            </a>
             <a class="btn rounded-pill p-1 btn-warning" href="{{ route('customer-drive', $cardCode) }}"
-                id="iframeLink3">Check
-                Docs(Same page)</a>
-
-            <a class="btn rounded-pill p-1 btn-primary" href="{{ route('appro-mode', $cardCode) }}"
-                id="iframeLink">Appro-Mode</a>
-            {{--  --}}
-            {{--  --}}
+                id="iframeLink3">
+                Check Docs(Same page)
+            </a>
+            @if (Auth::user()->isSuperUser == 1)
+                <a class="btn rounded-pill p-1 btn-primary" href="{{ route('appro-mode', $cardCode) }}"
+                    id="iframeLink">Appro-Mode</a>
+            @endif
             <button id="load_what_if" class="">Load Data Of What-If Into Form</button>
             <input type="hidden" id="what_if_card_code" value="{{ $cardCode }}">
-            {{--  --}}
-            {{--  --}}
         @endif
     @endif
     <form action="{{ route('approve') }}" method='POST' id='logout-form'>
         @csrf
         <input type="hidden" value="" id="approval" name="approveFieldId">
+        <input type="hidden" value="" id="reason" name="reasonField">
         @if (session()->get('posY'))
             <input type="hidden" value="{{ session()->get('posY') }}" id="scrollY" name="scrollY" />
         @else
@@ -92,7 +87,6 @@
         <input type="hidden" name="CardCode" value="{{ $customerSapData['CardCode'] }}">
         <input type="hidden" name="created_at" value="">
         <input type="hidden" name="updated_at" value="">
-
 
 
         @include('layouts.sep', ['variableName' => 'مجموعة - 1'])
@@ -142,24 +136,6 @@
     <script src="{{ asset('js/code.jquery.com_jquery-3.7.0.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
     <script>
-        // ! New Custom Event to do here  
-        // const customEvent = new CustomEvent('myCustomEvent', {
-        //     detail: {
-        //         someData: 'Hello, custom event!'
-        //     }
-        // });
-
-        // // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
-        // const radioButtons = document.querySelectorAll('input[type="radio"]');
-        // const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        // const inputElements = document.querySelectorAll('input');
-
-        // [...radioButtons, ...checkboxes, ...inputElements].forEach(function(element) {
-        //     element.dispatchEvent(customEvent);
-        // });
-        // // Those events Will not be disached HERE BUT will be dispached Upon clicking alert 
-    </script>
-    <script>
         $(document).ready(function() {
             console.log($('#scrollY').val());
             $(window).scrollTop($('#scrollY').val());
@@ -172,20 +148,16 @@
 
             $('#all-approve').submit(function(e) {
                 $('#groupFormUpdate').addClass('d-none');
-                // $('#all-approve').addClass('d-none');
                 $('#central').removeClass('d-none');
                 $('#loadingSpinner').removeClass('d-none');
             });
 
             $('.al').click(function(e) {
                 console.log('FFFFFF');
-                // alert('vv');
                 $('#groupFormUpdate').addClass('d-none');
                 $('#central').removeClass('d-none');
                 $('#loadingSpinner').removeClass('d-none');
             });
-            // var desiredScrollValue = $('#scrollY').val(scrollYValue);
-            // $(window).scrollTop(desiredScrollValue);
             $(window).on('scroll', function() {
                 var scrollYValue = $(window).scrollTop();
                 $('#scrollY').val(scrollYValue);
@@ -207,7 +179,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Disable all input, date and text fields inside divs with class 'sanad-g' when input radio button Called CustomerType is Changed and its Value is نقدى
             $(':input[name="CustomerType"]').change(function() {
                 if ($(this).val() == 'نقدى' && $(this).is(':checked')) {
                     $('.sanad-g').find('input, [type=date], textarea').prop('disabled', true);

@@ -7,3 +7,4 @@ You Will Need to Backup
 Check Everything is OK 
 Related Data ? What about them ? NAQDI 
 =======================
+php artisan make:migration add_column_to_editor_once_time_n_otifications --table=editor_once_time_n_otifications

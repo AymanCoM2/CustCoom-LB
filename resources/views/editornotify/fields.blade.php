@@ -22,7 +22,12 @@
                     </button>
                 </p>
             </div>
+            <div class="card-footer">
+                Reason : {{ $notify->reason }}
+            </div>
+            <hr>
         </div>
+        <br>
     @endforeach
 @endsection
 

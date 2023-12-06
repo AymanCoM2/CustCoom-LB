@@ -1,5 +1,4 @@
 @extends('layouts.dash')
-
 @section('content')
     <div class="container">
         <table class="table table-hover">
@@ -22,7 +21,7 @@
                                 {{ $editHistory->cardCode }}
                             </a>
                         </th>
-                        <td>{{ \App\Models\User::where('id' , $editHistory->editor_id)->first()->name }}</td>
+                        <td>{{ \App\Models\User::where('id', $editHistory->editor_id)->first()->name }}</td>
                         <td>{{ __($editHistory->fieldName, [], 'ar') }}</td>
                         <td>{{ $editHistory->oldValue }}</td>
                         <td>{{ $editHistory->newValue }}</td>
@@ -35,7 +34,3 @@
         {{ $allHistory->links() }}
     </div>
 @endsection
-
-{{-- 
-
-  --}}

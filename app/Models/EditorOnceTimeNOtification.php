@@ -15,5 +15,6 @@ class EditorOnceTimeNOtification extends Model
         'field_old_value',
         'field_new_value',
         'state',
+        'reason'
     ];
 }

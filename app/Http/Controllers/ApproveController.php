@@ -13,6 +13,8 @@ class ApproveController extends Controller
 {
     public function approveField(Request $request)
     {
+        // dd($request->approveFieldId);
+        // dd($request->reasonField);
         // approveField() is Now for Disapproval NOT for Approval 
         $verticalPosition  = $request->scrollY;
         $tmpDisapprove  = new TempDisapprove(); // For Show Button 
@@ -32,6 +34,9 @@ class ApproveController extends Controller
         $notifyEditor->field_old_value  = $approvedLog->oldValue == null ? "" : $approvedLog->oldValue;
         $notifyEditor->field_new_value  = $approvedLog->newValue == null ? "" : $approvedLog->newValue;
         $notifyEditor->state  = false;  // !TODO Check the Approve_all Controller ?  
+        if ($request->reasonField) {
+            $notifyEditor->reason  = $request->reasonField;
+        }
         $notifyEditor->save();
         // This is a Once Time Notification and Needs To be Deleted ;
         // * DONE 

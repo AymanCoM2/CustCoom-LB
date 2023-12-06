@@ -60,6 +60,7 @@
     <form action="{{ route('approve') }}" method='POST' id='logout-form'>
         @csrf
         <input type="hidden" value="" id="approval" name="approveFieldId">
+        <input type="hidden" value="" id="reason" name="reasonField">
         @if (session()->get('posY'))
             <input type="hidden" value="{{ session()->get('posY') }}" id="scrollY" name="scrollY" />
         @else
@@ -104,8 +105,7 @@
                         onclick="event.preventDefault();
                         document.getElementById('all-approve').submit();">
                 @else
-                    <input type="submit" name="submit" id="" value="Submit"
-                        class="form-group btn btn-danger">
+                    <h3>Done , Nothing More to approve ✔️</h3>
                     {{-- Write Here that there is Nothing More to TO !!! --}}
                 @endif
             </div>
