@@ -1,4 +1,4 @@
-{{-- <script>
+<script>
     const CRExpiryDateInput = document.getElementsByName("CRExpiryDate")[0];
     const CRExpiryDate_hInput = document.getElementsByName("CRExpiryDate_h")[0];
     const ExpirydateCommlicense = document.getElementsByName("ExpirydateCommlicense")[0];
@@ -461,4 +461,4 @@
     f17();
     f18();
     f19();
-</script> --}}
+</script>

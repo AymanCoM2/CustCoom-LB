@@ -362,7 +362,7 @@
     </script>
 
     @include('unified.uno')
-    {{-- @include('unified.HijriLoad') --}}
+    @include('unified.HijriLoad')
     @if (Auth::user()->isSuperUser == 3)
         @include('unified.viewer-js')
     @endif

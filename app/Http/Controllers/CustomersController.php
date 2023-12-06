@@ -35,7 +35,7 @@ class CustomersController extends Controller
         MAX(T0.[Balance]) 'Balance',
         MAX(T0.CreditLinE) 'CreditLinE'
 
-        FROM TM.DBO.[2022DueMaster] T0
+        FROM LB.DBO.[2022DueMaster] T0
         WHERE T0.[Due Period] >= 60
         GROUP BY T0.CCode),
 
@@ -48,7 +48,7 @@ class CustomersController extends Controller
         ELSE T0.CreditLine
         END AS 'Avaliable CreditLine' , T0.Free_Text, T0.GroupNum
 
-        FROM (TM.DBO.OCRD T0 LEFT JOIN TM.DBO.OCRG C1 ON T0.GroupCode = C1.GroupCode)
+        FROM (LB.DBO.OCRD T0 LEFT JOIN LB.DBO.OCRG C1 ON T0.GroupCode = C1.GroupCode)
         LEFT JOIN CustDue T1 ON T1.CCode = T0.CardCode
         LEFT JOIN OCTG C0 ON T0.GroupNum = C0.GroupNum
 
@@ -66,7 +66,7 @@ class CustomersController extends Controller
 
         if ($request->ajax()) {
             $serverName = "10.10.10.100";
-            $databaseName = "TM";
+            $databaseName = "LB";
             $uid = "ayman";
             $pwd = "admin@1234";
             $options = [
@@ -121,7 +121,7 @@ class CustomersController extends Controller
         MAX(T0.[Balance]) 'Balance',
         MAX(T0.CreditLinE) 'CreditLinE'
 
-        FROM TM.DBO.[2022DueMaster] T0
+        FROM LB.DBO.[2022DueMaster] T0
         WHERE T0.[Due Period] >= 60
         GROUP BY T0.CCode),
 
@@ -135,7 +135,7 @@ class CustomersController extends Controller
         END AS 'Avaliable CreditLine' , T0.Free_Text, T0.GroupNum
 
 
-        FROM (TM.DBO.OCRD T0 LEFT JOIN TM.DBO.OCRG C1 ON T0.GroupCode = C1.GroupCode)
+        FROM (LB.DBO.OCRD T0 LEFT JOIN LB.DBO.OCRG C1 ON T0.GroupCode = C1.GroupCode)
         LEFT JOIN CustDue T1 ON T1.CCode = T0.CardCode
         LEFT JOIN OCTG C0 ON T0.GroupNum = C0.GroupNum
 
@@ -151,7 +151,7 @@ class CustomersController extends Controller
             END AS 'DueAmount State'
         FROM R";
         $serverName = "10.10.10.100";
-        $databaseName = "TM";
+        $databaseName = "LB";
         $uid = "ayman";
         $pwd = "admin@1234";
         $options = [

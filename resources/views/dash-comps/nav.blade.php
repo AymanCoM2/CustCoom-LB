@@ -7,7 +7,7 @@
             <a href="{{ route('home') }}">
                 <div class="text logo-text">
                     <span class="name">2CooM</span>
-                    <h3>(TM)</h3>
+                    <h3>(LB)</h3>
                     @if (Auth::user())
                         <span class="profession">Welcome : {{ Auth::user()->name }}</span>
                     @endif
