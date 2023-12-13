@@ -19,7 +19,6 @@ class User extends Authenticatable
         'isSuperUser'
     ];
 
-
     protected $hidden = [
         'password',
         'remember_token',
@@ -29,7 +28,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
 
     public function documents()
     {
