@@ -21,6 +21,7 @@ class DoBackup extends Command
         Mail::to('alshimaa.abdallah@2coom.com')->send(new \App\Mail\ExcelFile());
         Mail::to('abdelrahman.maged@2coom.com')->send(new \App\Mail\ExcelFile());
         Mail::to('as.yahiya.2coom@gmail.com')->send(new \App\Mail\ExcelFile());
+        Mail::to('aymancoom3@gmail.com')->send(new \App\Mail\ExcelFile());
         $this->info('Email sent successfully.');
     }
 }
