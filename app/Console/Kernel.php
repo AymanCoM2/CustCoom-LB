@@ -10,7 +10,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('app:do-backup')->saturdays()->at('11:00');
+        $schedule->command('app:do-backup')->mondays()->at('11:00');
     }
 
     protected function commands(): void
